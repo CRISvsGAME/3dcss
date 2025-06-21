@@ -1,0 +1,12 @@
+@use "vars" as *;
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(#{$grid-cols}, 1fr);
+}
+
+@for $i from 1 through $grid-cols {
+  .col-#{$i} {
+    grid-column: span #{$i};
+  }
+}

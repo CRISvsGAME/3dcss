@@ -1,0 +1,12 @@
+@use "sass:map";
+@use "../vars" as *;
+
+$bp: bp5;
+
+@media (min-width: map.get($bps, $bp)) {
+  @for $i from 1 through $grid-cols {
+    .col-#{$bp}-#{$i} {
+      grid-column: span #{$i};
+    }
+  }
+}
