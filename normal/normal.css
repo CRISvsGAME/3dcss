@@ -1,0 +1,26 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  display: block;
+}
+
+head {
+  display: none;
+}
+
+:root {
+  font-family: sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 1;
+}
