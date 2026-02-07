@@ -25,3 +25,9 @@ head {
     font-weight: normal;
     line-height: 1;
 }
+
+html {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
