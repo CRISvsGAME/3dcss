@@ -31,3 +31,9 @@ html {
     height: 100%;
     overflow: auto;
 }
+
+body {
+    min-width: 20rem;
+    min-height: 20rem;
+    overflow: visible;
+}
