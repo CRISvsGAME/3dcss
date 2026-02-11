@@ -1,19 +1,21 @@
 const showInfo = () => {
     const windowInnerWidth = document.getElementById("window-inner-width");
-    windowInnerWidth.textContent = window.innerWidth;
+    windowInnerWidth.textContent = f(window.innerWidth);
     const windowInnerHeight = document.getElementById("window-inner-height");
-    windowInnerHeight.textContent = window.innerHeight;
+    windowInnerHeight.textContent = f(window.innerHeight);
 
     const htmlClientWidth = document.getElementById("html-client-width");
-    htmlClientWidth.textContent = document.documentElement.clientWidth;
+    htmlClientWidth.textContent = f(document.documentElement.clientWidth);
     const htmlClientHeight = document.getElementById("html-client-height");
-    htmlClientHeight.textContent = document.documentElement.clientHeight;
+    htmlClientHeight.textContent = f(document.documentElement.clientHeight);
 
     const bodyClientWidth = document.getElementById("body-client-width");
-    bodyClientWidth.textContent = document.body.clientWidth;
+    bodyClientWidth.textContent = f(document.body.clientWidth);
     const bodyClientHeight = document.getElementById("body-client-height");
-    bodyClientHeight.textContent = document.body.clientHeight;
+    bodyClientHeight.textContent = f(document.body.clientHeight);
 };
+
+const f = (n) => String(n).padStart(4, "0");
 
 window.addEventListener("load", () => {
     showInfo();
