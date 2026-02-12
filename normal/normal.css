@@ -24,6 +24,8 @@ head {
     font-variant: normal;
     font-weight: normal;
     line-height: 1;
+    --g-col: 12;
+    --g-gap: 0;
 }
 
 html {
@@ -36,6 +38,12 @@ body {
     min-width: 20rem;
     min-height: 20rem;
     overflow: visible;
+}
+
+.g {
+    display: grid;
+    grid-template-columns: repeat(var(--g-col, 12), minmax(0, 1fr));
+    gap: var(--g-gap, 0);
 }
 
 .size {
