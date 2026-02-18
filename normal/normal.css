@@ -194,6 +194,56 @@ body {
     }
 }
 
+@media (min-width: 60rem) {
+    .b3-s-1 {
+        grid-column: span 1;
+    }
+
+    .b3-s-2 {
+        grid-column: span 2;
+    }
+
+    .b3-s-3 {
+        grid-column: span 3;
+    }
+
+    .b3-s-4 {
+        grid-column: span 4;
+    }
+
+    .b3-s-5 {
+        grid-column: span 5;
+    }
+
+    .b3-s-6 {
+        grid-column: span 6;
+    }
+
+    .b3-s-7 {
+        grid-column: span 7;
+    }
+
+    .b3-s-8 {
+        grid-column: span 8;
+    }
+
+    .b3-s-9 {
+        grid-column: span 9;
+    }
+
+    .b3-s-10 {
+        grid-column: span 10;
+    }
+
+    .b3-s-11 {
+        grid-column: span 11;
+    }
+
+    .b3-s-12 {
+        grid-column: span 12;
+    }
+}
+
 .size {
     width: 100%;
     height: 100%;
