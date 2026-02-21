@@ -344,6 +344,56 @@ body {
     }
 }
 
+@media (min-width: 96rem) {
+    .b6-s-1 {
+        grid-column: span 1;
+    }
+
+    .b6-s-2 {
+        grid-column: span 2;
+    }
+
+    .b6-s-3 {
+        grid-column: span 3;
+    }
+
+    .b6-s-4 {
+        grid-column: span 4;
+    }
+
+    .b6-s-5 {
+        grid-column: span 5;
+    }
+
+    .b6-s-6 {
+        grid-column: span 6;
+    }
+
+    .b6-s-7 {
+        grid-column: span 7;
+    }
+
+    .b6-s-8 {
+        grid-column: span 8;
+    }
+
+    .b6-s-9 {
+        grid-column: span 9;
+    }
+
+    .b6-s-10 {
+        grid-column: span 10;
+    }
+
+    .b6-s-11 {
+        grid-column: span 11;
+    }
+
+    .b6-s-12 {
+        grid-column: span 12;
+    }
+}
+
 .size {
     width: 100%;
     height: 100%;
