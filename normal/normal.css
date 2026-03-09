@@ -46,6 +46,10 @@ body {
     gap: var(--g-gap, 0);
 }
 
+.g-er {
+    grid-auto-rows: minmax(0, 1fr);
+}
+
 .s {
     display: grid;
     grid-template-columns: subgrid;
