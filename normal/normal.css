@@ -55,6 +55,10 @@ body {
     grid-template-columns: subgrid;
 }
 
+.sg-er {
+    grid-auto-rows: subgrid;
+}
+
 .cs-1 {
     grid-column: span 1;
 }
