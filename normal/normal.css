@@ -107,6 +107,30 @@ body {
     grid-column: span 12;
 }
 
+.rs-1 {
+    grid-row: span 1;
+}
+
+.rs-2 {
+    grid-row: span 2;
+}
+
+.rs-3 {
+    grid-row: span 3;
+}
+
+.rs-4 {
+    grid-row: span 4;
+}
+
+.rs-5 {
+    grid-row: span 5;
+}
+
+.rs-6 {
+    grid-row: span 6;
+}
+
 @media (min-width: 36rem) {
     .b1-cs-1 {
         grid-column: span 1;
