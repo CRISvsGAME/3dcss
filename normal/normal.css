@@ -56,7 +56,7 @@ body {
 }
 
 .sg-er {
-    grid-auto-rows: subgrid;
+    grid-template-rows: subgrid;
 }
 
 .cs-1 {
