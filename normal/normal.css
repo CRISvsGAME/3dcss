@@ -8,7 +8,9 @@
 }
 
 body,
-html {
+div,
+html,
+p {
     display: block;
 }
 
@@ -40,22 +42,38 @@ body {
     overflow: visible;
 }
 
-.g {
+/*
+ * gr = grid root
+ * er = equal rows
+ * sc = subgrid columns
+ * sr = subgrid rows
+ * cs = column span
+ * rs = row span
+ * b1 = breakpoint 1
+ * b2 = breakpoint 2
+ * b3 = breakpoint 3
+ * b4 = breakpoint 4
+ * b5 = breakpoint 5
+ * b6 = breakpoint 6
+ */
+
+.gr {
     display: grid;
     grid-template-columns: repeat(var(--g-col, 12), minmax(0, 1fr));
     gap: var(--g-gap, 0);
 }
 
-.g-er {
+.er {
     grid-auto-rows: minmax(0, 1fr);
 }
 
-.sg {
+.sc {
     display: grid;
     grid-template-columns: subgrid;
 }
 
-.sg-er {
+.sr {
+    display: grid;
     grid-template-rows: subgrid;
 }
 
