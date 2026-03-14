@@ -419,6 +419,30 @@ body {
     .b4-cs-12 {
         grid-column: span 12;
     }
+
+    .b4-rs-1 {
+        grid-row: span 1;
+    }
+
+    .b4-rs-2 {
+        grid-row: span 2;
+    }
+
+    .b4-rs-3 {
+        grid-row: span 3;
+    }
+
+    .b4-rs-4 {
+        grid-row: span 4;
+    }
+
+    .b4-rs-5 {
+        grid-row: span 5;
+    }
+
+    .b4-rs-6 {
+        grid-row: span 6;
+    }
 }
 
 @media (min-width: 84rem) {
