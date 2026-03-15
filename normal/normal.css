@@ -567,6 +567,30 @@ body {
     .b6-cs-12 {
         grid-column: span 12;
     }
+
+    .b6-rs-1 {
+        grid-row: span 1;
+    }
+
+    .b6-rs-2 {
+        grid-row: span 2;
+    }
+
+    .b6-rs-3 {
+        grid-row: span 3;
+    }
+
+    .b6-rs-4 {
+        grid-row: span 4;
+    }
+
+    .b6-rs-5 {
+        grid-row: span 5;
+    }
+
+    .b6-rs-6 {
+        grid-row: span 6;
+    }
 }
 
 .size {
