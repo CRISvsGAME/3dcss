@@ -44,6 +44,7 @@ body {
 
 /*
  * gr = grid root
+ * gg = grid gap
  * er = equal rows
  * sc = subgrid columns
  * sr = subgrid rows
@@ -61,6 +62,34 @@ body {
     display: grid;
     grid-template-columns: repeat(var(--g-col, 12), minmax(0, 1fr));
     gap: var(--g-gap, 0);
+}
+
+.gg-0 {
+    --g-gap: 0;
+}
+
+.gg-1 {
+    --g-gap: 0.25rem;
+}
+
+.gg-2 {
+    --g-gap: 0.5rem;
+}
+
+.gg-3 {
+    --g-gap: 0.75rem;
+}
+
+.gg-4 {
+    --g-gap: 1rem;
+}
+
+.gg-5 {
+    --g-gap: 1.25rem;
+}
+
+.gg-6 {
+    --g-gap: 1.5rem;
 }
 
 .er {
