@@ -179,6 +179,34 @@ body {
 }
 
 @media (min-width: 36rem) {
+    .b1-gg-0 {
+        --g-gap: 0;
+    }
+
+    .b1-gg-1 {
+        --g-gap: 0.25rem;
+    }
+
+    .b1-gg-2 {
+        --g-gap: 0.5rem;
+    }
+
+    .b1-gg-3 {
+        --g-gap: 0.75rem;
+    }
+
+    .b1-gg-4 {
+        --g-gap: 1rem;
+    }
+
+    .b1-gg-5 {
+        --g-gap: 1.25rem;
+    }
+
+    .b1-gg-6 {
+        --g-gap: 1.5rem;
+    }
+
     .b1-cs-1 {
         grid-column: span 1;
     }
