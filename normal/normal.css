@@ -485,6 +485,34 @@ body {
 }
 
 @media (min-width: 72rem) {
+    .b4-gg-0 {
+        --g-gap: 0;
+    }
+
+    .b4-gg-1 {
+        --g-gap: 0.25rem;
+    }
+
+    .b4-gg-2 {
+        --g-gap: 0.5rem;
+    }
+
+    .b4-gg-3 {
+        --g-gap: 0.75rem;
+    }
+
+    .b4-gg-4 {
+        --g-gap: 1rem;
+    }
+
+    .b4-gg-5 {
+        --g-gap: 1.25rem;
+    }
+
+    .b4-gg-6 {
+        --g-gap: 1.5rem;
+    }
+
     .b4-cs-1 {
         grid-column: span 1;
     }
