@@ -26,8 +26,6 @@ head {
     font-variant: normal;
     font-weight: normal;
     line-height: 1;
-    --g-col: 12;
-    --g-gap: 0;
 }
 
 html {
@@ -44,7 +42,7 @@ body {
 
 /*
  * gr = grid root
- * gg = grid gap
+ * gp = gap size
  * er = equal rows
  * sc = subgrid columns
  * sr = subgrid rows
@@ -60,36 +58,35 @@ body {
 
 .gr {
     display: grid;
-    grid-template-columns: repeat(var(--g-col, 12), minmax(0, 1fr));
-    gap: var(--g-gap, 0);
+    grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 
-.gg-0 {
-    --g-gap: 0;
+.gp-0 {
+    gap: 0;
 }
 
-.gg-1 {
-    --g-gap: 0.25rem;
+.gp-1 {
+    gap: 0.25rem;
 }
 
-.gg-2 {
-    --g-gap: 0.5rem;
+.gp-2 {
+    gap: 0.5rem;
 }
 
-.gg-3 {
-    --g-gap: 0.75rem;
+.gp-3 {
+    gap: 0.75rem;
 }
 
-.gg-4 {
-    --g-gap: 1rem;
+.gp-4 {
+    gap: 1rem;
 }
 
-.gg-5 {
-    --g-gap: 1.25rem;
+.gp-5 {
+    gap: 1.25rem;
 }
 
-.gg-6 {
-    --g-gap: 1.5rem;
+.gp-6 {
+    gap: 1.5rem;
 }
 
 .er {
@@ -179,32 +176,32 @@ body {
 }
 
 @media (min-width: 36rem) {
-    .b1-gg-0 {
-        --g-gap: 0;
+    .b1-gp-0 {
+        gap: 0;
     }
 
-    .b1-gg-1 {
-        --g-gap: 0.25rem;
+    .b1-gp-1 {
+        gap: 0.25rem;
     }
 
-    .b1-gg-2 {
-        --g-gap: 0.5rem;
+    .b1-gp-2 {
+        gap: 0.5rem;
     }
 
-    .b1-gg-3 {
-        --g-gap: 0.75rem;
+    .b1-gp-3 {
+        gap: 0.75rem;
     }
 
-    .b1-gg-4 {
-        --g-gap: 1rem;
+    .b1-gp-4 {
+        gap: 1rem;
     }
 
-    .b1-gg-5 {
-        --g-gap: 1.25rem;
+    .b1-gp-5 {
+        gap: 1.25rem;
     }
 
-    .b1-gg-6 {
-        --g-gap: 1.5rem;
+    .b1-gp-6 {
+        gap: 1.5rem;
     }
 
     .b1-cs-1 {
@@ -281,32 +278,32 @@ body {
 }
 
 @media (min-width: 48rem) {
-    .b2-gg-0 {
-        --g-gap: 0;
+    .b2-gp-0 {
+        gap: 0;
     }
 
-    .b2-gg-1 {
-        --g-gap: 0.25rem;
+    .b2-gp-1 {
+        gap: 0.25rem;
     }
 
-    .b2-gg-2 {
-        --g-gap: 0.5rem;
+    .b2-gp-2 {
+        gap: 0.5rem;
     }
 
-    .b2-gg-3 {
-        --g-gap: 0.75rem;
+    .b2-gp-3 {
+        gap: 0.75rem;
     }
 
-    .b2-gg-4 {
-        --g-gap: 1rem;
+    .b2-gp-4 {
+        gap: 1rem;
     }
 
-    .b2-gg-5 {
-        --g-gap: 1.25rem;
+    .b2-gp-5 {
+        gap: 1.25rem;
     }
 
-    .b2-gg-6 {
-        --g-gap: 1.5rem;
+    .b2-gp-6 {
+        gap: 1.5rem;
     }
 
     .b2-cs-1 {
@@ -383,32 +380,32 @@ body {
 }
 
 @media (min-width: 60rem) {
-    .b3-gg-0 {
-        --g-gap: 0;
+    .b3-gp-0 {
+        gap: 0;
     }
 
-    .b3-gg-1 {
-        --g-gap: 0.25rem;
+    .b3-gp-1 {
+        gap: 0.25rem;
     }
 
-    .b3-gg-2 {
-        --g-gap: 0.5rem;
+    .b3-gp-2 {
+        gap: 0.5rem;
     }
 
-    .b3-gg-3 {
-        --g-gap: 0.75rem;
+    .b3-gp-3 {
+        gap: 0.75rem;
     }
 
-    .b3-gg-4 {
-        --g-gap: 1rem;
+    .b3-gp-4 {
+        gap: 1rem;
     }
 
-    .b3-gg-5 {
-        --g-gap: 1.25rem;
+    .b3-gp-5 {
+        gap: 1.25rem;
     }
 
-    .b3-gg-6 {
-        --g-gap: 1.5rem;
+    .b3-gp-6 {
+        gap: 1.5rem;
     }
 
     .b3-cs-1 {
@@ -485,32 +482,32 @@ body {
 }
 
 @media (min-width: 72rem) {
-    .b4-gg-0 {
-        --g-gap: 0;
+    .b4-gp-0 {
+        gap: 0;
     }
 
-    .b4-gg-1 {
-        --g-gap: 0.25rem;
+    .b4-gp-1 {
+        gap: 0.25rem;
     }
 
-    .b4-gg-2 {
-        --g-gap: 0.5rem;
+    .b4-gp-2 {
+        gap: 0.5rem;
     }
 
-    .b4-gg-3 {
-        --g-gap: 0.75rem;
+    .b4-gp-3 {
+        gap: 0.75rem;
     }
 
-    .b4-gg-4 {
-        --g-gap: 1rem;
+    .b4-gp-4 {
+        gap: 1rem;
     }
 
-    .b4-gg-5 {
-        --g-gap: 1.25rem;
+    .b4-gp-5 {
+        gap: 1.25rem;
     }
 
-    .b4-gg-6 {
-        --g-gap: 1.5rem;
+    .b4-gp-6 {
+        gap: 1.5rem;
     }
 
     .b4-cs-1 {
@@ -587,32 +584,32 @@ body {
 }
 
 @media (min-width: 84rem) {
-    .b5-gg-0 {
-        --g-gap: 0;
+    .b5-gp-0 {
+        gap: 0;
     }
 
-    .b5-gg-1 {
-        --g-gap: 0.25rem;
+    .b5-gp-1 {
+        gap: 0.25rem;
     }
 
-    .b5-gg-2 {
-        --g-gap: 0.5rem;
+    .b5-gp-2 {
+        gap: 0.5rem;
     }
 
-    .b5-gg-3 {
-        --g-gap: 0.75rem;
+    .b5-gp-3 {
+        gap: 0.75rem;
     }
 
-    .b5-gg-4 {
-        --g-gap: 1rem;
+    .b5-gp-4 {
+        gap: 1rem;
     }
 
-    .b5-gg-5 {
-        --g-gap: 1.25rem;
+    .b5-gp-5 {
+        gap: 1.25rem;
     }
 
-    .b5-gg-6 {
-        --g-gap: 1.5rem;
+    .b5-gp-6 {
+        gap: 1.5rem;
     }
 
     .b5-cs-1 {
@@ -689,32 +686,32 @@ body {
 }
 
 @media (min-width: 96rem) {
-    .b6-gg-0 {
-        --g-gap: 0;
+    .b6-gp-0 {
+        gap: 0;
     }
 
-    .b6-gg-1 {
-        --g-gap: 0.25rem;
+    .b6-gp-1 {
+        gap: 0.25rem;
     }
 
-    .b6-gg-2 {
-        --g-gap: 0.5rem;
+    .b6-gp-2 {
+        gap: 0.5rem;
     }
 
-    .b6-gg-3 {
-        --g-gap: 0.75rem;
+    .b6-gp-3 {
+        gap: 0.75rem;
     }
 
-    .b6-gg-4 {
-        --g-gap: 1rem;
+    .b6-gp-4 {
+        gap: 1rem;
     }
 
-    .b6-gg-5 {
-        --g-gap: 1.25rem;
+    .b6-gp-5 {
+        gap: 1.25rem;
     }
 
-    .b6-gg-6 {
-        --g-gap: 1.5rem;
+    .b6-gp-6 {
+        gap: 1.5rem;
     }
 
     .b6-cs-1 {
