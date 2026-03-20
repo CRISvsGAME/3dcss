@@ -1,5 +1,29 @@
 // @ts-check
 
+class FrameClock {
+    /** @type {number} */
+    fps = 0;
+
+    /** @type {number} */
+    last = performance.now();
+
+    /** @type {number} */
+    delta = 0;
+
+    /** @type {number} */
+    smooth = 0.1;
+
+    /**
+     * @param {number} [now]
+     * @returns {void}
+     */
+    _tick = (now = performance.now()) => {
+        this.delta = now - this.last;
+        this.last = now;
+        this.fps += (1000 / this.delta - this.fps) * this.smooth;
+    };
+}
+
 const showInfo = () => {
     const windowInnerWidth = document.getElementById("window-inner-width");
     if (windowInnerWidth) windowInnerWidth.textContent = f(window.innerWidth);
