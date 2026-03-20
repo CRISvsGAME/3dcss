@@ -22,6 +22,15 @@ class FrameClock {
         this.last = now;
         this.fps += (1000 / this.delta - this.fps) * this.smooth;
     };
+
+    /**
+     * @param {number} now
+     * @returns {void}
+     */
+    _loop = (now) => {
+        this._tick(now);
+        requestAnimationFrame(this._loop);
+    };
 }
 
 const showInfo = () => {
