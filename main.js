@@ -39,6 +39,13 @@ class FrameClock {
         this.last = performance.now();
         this.frame = requestAnimationFrame(this._loop);
     }
+
+    stop() {
+        if (this.frame !== null) {
+            cancelAnimationFrame(this.frame);
+            this.frame = null;
+        }
+    }
 }
 
 const showInfo = () => {
