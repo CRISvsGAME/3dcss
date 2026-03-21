@@ -13,6 +13,9 @@ class FrameClock {
     /** @type {number} */
     smooth = 0.1;
 
+    /** @type {number | null} */
+    frame = null;
+
     /**
      * @param {number} [now]
      * @returns {void}
@@ -29,8 +32,13 @@ class FrameClock {
      */
     _loop = (now) => {
         this._tick(now);
-        requestAnimationFrame(this._loop);
+        this.frame = requestAnimationFrame(this._loop);
     };
+
+    start() {
+        this.last = performance.now();
+        this.frame = requestAnimationFrame(this._loop);
+    }
 }
 
 const showInfo = () => {
