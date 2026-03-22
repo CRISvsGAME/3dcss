@@ -1,6 +1,14 @@
 // @ts-check
 
 class FrameClock {
+    /** @type {((fps: number) => void) | null} */
+    onFrame = null;
+
+    /** @param {((fps: number) => void) | null} [onFrame] */
+    constructor(onFrame = null) {
+        this.onFrame = onFrame;
+    }
+
     /** @type {number} */
     fps = 0;
 
@@ -24,6 +32,7 @@ class FrameClock {
         this.delta = now - this.last;
         this.last = now;
         this.fps += (1000 / this.delta - this.fps) * this.smooth;
+        if (this.onFrame) this.onFrame(this.fps);
     };
 
     /**
@@ -47,6 +56,12 @@ class FrameClock {
         }
     }
 }
+
+const frameClockDisplay = document.getElementById("frame-clock-display");
+const frameClock = new FrameClock((fps) => {
+    if (frameClockDisplay) frameClockDisplay.textContent = fps.toFixed(0);
+});
+frameClock.start();
 
 const showInfo = () => {
     const windowInnerWidth = document.getElementById("window-inner-width");
