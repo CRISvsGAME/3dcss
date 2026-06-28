@@ -1,0 +1,35 @@
+{
+    "name": "@crisvsgame/3dcss",
+    "version": "0.0.1",
+    "description": "A lightweight CSS framework for grid-based layouts, reusable components, and interactive visual effects",
+    "keywords": [
+        "lightweight",
+        "css",
+        "framework",
+        "grid",
+        "css-grid",
+        "layout",
+        "components",
+        "interactive",
+        "visual",
+        "effects",
+        "responsive",
+        "frontend",
+        "ui"
+    ],
+    "homepage": "https://github.com/CRISvsGAME/3dcss#readme",
+    "bugs": {
+        "url": "https://github.com/CRISvsGAME/3dcss/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/CRISvsGAME/3dcss.git"
+    },
+    "license": "MIT",
+    "author": "CRISvsGAME <cris@crisvsgame.com>",
+    "type": "module",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    }
+}
