@@ -1,6 +1,6 @@
 {
     "name": "@crisvsgame/3dcss",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "description": "A lightweight CSS framework for grid-based layouts, reusable components, and interactive visual effects",
     "keywords": [
         "lightweight",
@@ -28,9 +28,16 @@
     "license": "MIT",
     "author": "CRISvsGAME <cris@crisvsgame.com>",
     "type": "module",
-    "main": "index.js",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js"
+        }
+    },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "build": "tsc"
     },
     "devDependencies": {
         "typescript": "^6.0.3"
