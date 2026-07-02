@@ -37,8 +37,8 @@
         }
     },
     "scripts": {
-        "build": "tsc",
-        "dev": "tsc --watch"
+        "build": "tsc && tsc --project tsconfig.dev.json",
+        "dev": "tsc --watch & tsc --project tsconfig.dev.json --watch"
     },
     "devDependencies": {
         "typescript": "^6.0.3"

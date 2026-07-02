@@ -1,0 +1,9 @@
+{
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+        "rootDir": "./dev",
+        "declaration": false,
+        "declarationMap": false
+    },
+    "include": ["dev/**/*"]
+}
