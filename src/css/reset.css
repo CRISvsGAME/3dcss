@@ -1,0 +1,41 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+div,
+html,
+p {
+    display: block;
+}
+
+head {
+    display: none;
+}
+
+:root {
+    font-family: sans-serif;
+    font-size: 100%;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+body {
+    min-width: 20rem;
+    min-height: 20rem;
+    overflow: visible;
+}
