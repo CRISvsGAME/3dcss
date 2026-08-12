@@ -1,0 +1,42 @@
+@layer layout {
+    :where(.dcss) {
+        .site,
+        .st {
+            inline-size: 100%;
+            display: grid;
+            grid-template-columns:
+                [full-start] minmax(0, 1fr)
+                [cont-start] minmax(0, var(--dcss-site-max, 100%))
+                [cont-end] minmax(0, 1fr)
+                [full-end];
+
+            & > * {
+                grid-column: cont-start / cont-end;
+            }
+
+            & > :is(.site-bleed, .st-b) {
+                display: grid;
+                grid-column: full-start / full-end;
+                grid-template-columns: subgrid;
+            }
+
+            & > :is(.site-bleed-start, .st-b-s) {
+                display: grid;
+                grid-column: full-start / cont-end;
+                grid-template-columns: subgrid;
+            }
+
+            & > :is(.site-bleed-end, .st-b-e) {
+                display: grid;
+                grid-column: cont-start / full-end;
+                grid-template-columns: subgrid;
+            }
+
+            &
+                > :is(.site-bleed, .st-b, .site-bleed-start, .st-b-s, .site-bleed-end, .st-b-e)
+                > :is(.site-content, .st-c) {
+                grid-column: cont-start / cont-end;
+            }
+        }
+    }
+}

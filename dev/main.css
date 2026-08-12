@@ -1,5 +1,9 @@
 @import "../src/css/index.css";
 
+:root {
+    --dcss-site-max: 70rem;
+}
+
 .size {
     padding: 1rem;
     display: flex;
