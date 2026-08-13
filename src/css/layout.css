@@ -5,10 +5,25 @@
             inline-size: 100%;
             display: grid;
             grid-template-columns:
-                [full-start] minmax(0, 1fr)
+                [full-start] minmax(0, var(--dcss-site-space-start, 1fr))
                 [cont-start] minmax(0, var(--dcss-site-max, 100%))
-                [cont-end] minmax(0, 1fr)
+                [cont-end] minmax(0, var(--dcss-site-space-end, 1fr))
                 [full-end];
+
+            &:is(.site-align-start, .st-a-s) {
+                --dcss-site-space-start: 0fr;
+                --dcss-site-space-end: 1fr;
+            }
+
+            &:is(.site-align-center, .st-a-c) {
+                --dcss-site-space-start: 1fr;
+                --dcss-site-space-end: 1fr;
+            }
+
+            &:is(.site-align-end, .st-a-e) {
+                --dcss-site-space-start: 1fr;
+                --dcss-site-space-end: 0fr;
+            }
 
             & > * {
                 grid-column: cont-start / cont-end;
@@ -18,18 +33,30 @@
                 display: grid;
                 grid-column: full-start / full-end;
                 grid-template-columns: subgrid;
+
+                & > * {
+                    grid-column: full-start / full-end;
+                }
             }
 
             & > :is(.site-bleed-start, .st-b-s) {
                 display: grid;
                 grid-column: full-start / cont-end;
                 grid-template-columns: subgrid;
+
+                & > * {
+                    grid-column: full-start / cont-end;
+                }
             }
 
             & > :is(.site-bleed-end, .st-b-e) {
                 display: grid;
                 grid-column: cont-start / full-end;
                 grid-template-columns: subgrid;
+
+                & > * {
+                    grid-column: cont-start / full-end;
+                }
             }
 
             &
