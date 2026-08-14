@@ -5,9 +5,9 @@
             inline-size: 100%;
             display: grid;
             grid-template-columns:
-                [full-start] minmax(0, var(--dcss-site-space-start, 1fr))
+                [full-start] minmax(var(--dcss-site-min-gutter-start, 0px), var(--dcss-site-space-start, 1fr))
                 [cont-start] minmax(0, var(--dcss-site-max, 100%))
-                [cont-end] minmax(0, var(--dcss-site-space-end, 1fr))
+                [cont-end] minmax(var(--dcss-site-min-gutter-end, 0px), var(--dcss-site-space-end, 1fr))
                 [full-end];
 
             &:is(.site-align-start, .st-a-s) {
@@ -23,6 +23,14 @@
             &:is(.site-align-end, .st-a-e) {
                 --dcss-site-space-start: 1fr;
                 --dcss-site-space-end: 0fr;
+            }
+
+            &:is(.site-gutter, .st-g, .site-gutter-start, .st-g-s) {
+                --dcss-site-min-gutter-start: var(--dcss-site-gutter-start, var(--dcss-site-gutter, 1rem));
+            }
+
+            &:is(.site-gutter, .st-g, .site-gutter-end, .st-g-e) {
+                --dcss-site-min-gutter-end: var(--dcss-site-gutter-end, var(--dcss-site-gutter, 1rem));
             }
 
             & > * {
