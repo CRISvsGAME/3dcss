@@ -5,6 +5,150 @@
             --dcss-grid-tracks: minmax(0, 1fr);
             display: grid;
             grid-template-columns: var(--dcss-grid-tracks);
+
+            & > :is(.column-start-1, .cl-s-1) {
+                grid-column-start: 1;
+            }
+
+            & > :is(.column-start-2, .cl-s-2) {
+                grid-column-start: 2;
+            }
+
+            & > :is(.column-start-3, .cl-s-3) {
+                grid-column-start: 3;
+            }
+
+            & > :is(.column-start-4, .cl-s-4) {
+                grid-column-start: 4;
+            }
+
+            & > :is(.column-start-5, .cl-s-5) {
+                grid-column-start: 5;
+            }
+
+            & > :is(.column-start-6, .cl-s-6) {
+                grid-column-start: 6;
+            }
+
+            & > :is(.column-start-7, .cl-s-7) {
+                grid-column-start: 7;
+            }
+
+            & > :is(.column-start-8, .cl-s-8) {
+                grid-column-start: 8;
+            }
+
+            & > :is(.column-start-9, .cl-s-9) {
+                grid-column-start: 9;
+            }
+
+            & > :is(.column-start-10, .cl-s-10) {
+                grid-column-start: 10;
+            }
+
+            & > :is(.column-start-11, .cl-s-11) {
+                grid-column-start: 11;
+            }
+
+            & > :is(.column-start-12, .cl-s-12) {
+                grid-column-start: 12;
+            }
+
+            & > :is(.column-end-1, .cl-e-1) {
+                grid-column-end: 2;
+            }
+
+            & > :is(.column-end-2, .cl-e-2) {
+                grid-column-end: 3;
+            }
+
+            & > :is(.column-end-3, .cl-e-3) {
+                grid-column-end: 4;
+            }
+
+            & > :is(.column-end-4, .cl-e-4) {
+                grid-column-end: 5;
+            }
+
+            & > :is(.column-end-5, .cl-e-5) {
+                grid-column-end: 6;
+            }
+
+            & > :is(.column-end-6, .cl-e-6) {
+                grid-column-end: 7;
+            }
+
+            & > :is(.column-end-7, .cl-e-7) {
+                grid-column-end: 8;
+            }
+
+            & > :is(.column-end-8, .cl-e-8) {
+                grid-column-end: 9;
+            }
+
+            & > :is(.column-end-9, .cl-e-9) {
+                grid-column-end: 10;
+            }
+
+            & > :is(.column-end-10, .cl-e-10) {
+                grid-column-end: 11;
+            }
+
+            & > :is(.column-end-11, .cl-e-11) {
+                grid-column-end: 12;
+            }
+
+            & > :is(.column-end-12, .cl-e-12) {
+                grid-column-end: 13;
+            }
+
+            & > :is(.column-span-1, .cl-sp-1) {
+                grid-column-end: span 1;
+            }
+
+            & > :is(.column-span-2, .cl-sp-2) {
+                grid-column-end: span 2;
+            }
+
+            & > :is(.column-span-3, .cl-sp-3) {
+                grid-column-end: span 3;
+            }
+
+            & > :is(.column-span-4, .cl-sp-4) {
+                grid-column-end: span 4;
+            }
+
+            & > :is(.column-span-5, .cl-sp-5) {
+                grid-column-end: span 5;
+            }
+
+            & > :is(.column-span-6, .cl-sp-6) {
+                grid-column-end: span 6;
+            }
+
+            & > :is(.column-span-7, .cl-sp-7) {
+                grid-column-end: span 7;
+            }
+
+            & > :is(.column-span-8, .cl-sp-8) {
+                grid-column-end: span 8;
+            }
+
+            & > :is(.column-span-9, .cl-sp-9) {
+                grid-column-end: span 9;
+            }
+
+            & > :is(.column-span-10, .cl-sp-10) {
+                grid-column-end: span 10;
+            }
+
+            & > :is(.column-span-11, .cl-sp-11) {
+                grid-column-end: span 11;
+            }
+
+            & > :is(.column-span-12, .cl-sp-12) {
+                grid-column-end: span 12;
+            }
         }
 
         .grid-12,
