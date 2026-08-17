@@ -2,9 +2,11 @@
     :where(.dcss) {
         .grid,
         .gr {
-            --dcss-grid-tracks: minmax(0, 1fr);
+            --dcss-col-tracks: minmax(0, 1fr);
+            --dcss-row-tracks: none;
             display: grid;
-            grid-template-columns: var(--dcss-grid-tracks);
+            grid-template-columns: var(--dcss-col-tracks);
+            grid-template-rows: var(--dcss-row-tracks);
 
             & > :is(.column-start-1, .cl-s-1) {
                 grid-column-start: 1;
@@ -149,11 +151,160 @@
             & > :is(.column-span-12, .cl-sp-12) {
                 grid-column-end: span 12;
             }
+
+            & > :is(.row-start-1, .rw-s-1) {
+                grid-row-start: 1;
+            }
+
+            & > :is(.row-start-2, .rw-s-2) {
+                grid-row-start: 2;
+            }
+
+            & > :is(.row-start-3, .rw-s-3) {
+                grid-row-start: 3;
+            }
+
+            & > :is(.row-start-4, .rw-s-4) {
+                grid-row-start: 4;
+            }
+
+            & > :is(.row-start-5, .rw-s-5) {
+                grid-row-start: 5;
+            }
+
+            & > :is(.row-start-6, .rw-s-6) {
+                grid-row-start: 6;
+            }
+
+            & > :is(.row-start-7, .rw-s-7) {
+                grid-row-start: 7;
+            }
+
+            & > :is(.row-start-8, .rw-s-8) {
+                grid-row-start: 8;
+            }
+
+            & > :is(.row-start-9, .rw-s-9) {
+                grid-row-start: 9;
+            }
+
+            & > :is(.row-start-10, .rw-s-10) {
+                grid-row-start: 10;
+            }
+
+            & > :is(.row-start-11, .rw-s-11) {
+                grid-row-start: 11;
+            }
+
+            & > :is(.row-start-12, .rw-s-12) {
+                grid-row-start: 12;
+            }
+
+            & > :is(.row-end-1, .rw-e-1) {
+                grid-row-end: 2;
+            }
+
+            & > :is(.row-end-2, .rw-e-2) {
+                grid-row-end: 3;
+            }
+
+            & > :is(.row-end-3, .rw-e-3) {
+                grid-row-end: 4;
+            }
+
+            & > :is(.row-end-4, .rw-e-4) {
+                grid-row-end: 5;
+            }
+
+            & > :is(.row-end-5, .rw-e-5) {
+                grid-row-end: 6;
+            }
+
+            & > :is(.row-end-6, .rw-e-6) {
+                grid-row-end: 7;
+            }
+
+            & > :is(.row-end-7, .rw-e-7) {
+                grid-row-end: 8;
+            }
+
+            & > :is(.row-end-8, .rw-e-8) {
+                grid-row-end: 9;
+            }
+
+            & > :is(.row-end-9, .rw-e-9) {
+                grid-row-end: 10;
+            }
+
+            & > :is(.row-end-10, .rw-e-10) {
+                grid-row-end: 11;
+            }
+
+            & > :is(.row-end-11, .rw-e-11) {
+                grid-row-end: 12;
+            }
+
+            & > :is(.row-end-12, .rw-e-12) {
+                grid-row-end: 13;
+            }
+
+            & > :is(.row-span-1, .rw-sp-1) {
+                grid-row-end: span 1;
+            }
+
+            & > :is(.row-span-2, .rw-sp-2) {
+                grid-row-end: span 2;
+            }
+
+            & > :is(.row-span-3, .rw-sp-3) {
+                grid-row-end: span 3;
+            }
+
+            & > :is(.row-span-4, .rw-sp-4) {
+                grid-row-end: span 4;
+            }
+
+            & > :is(.row-span-5, .rw-sp-5) {
+                grid-row-end: span 5;
+            }
+
+            & > :is(.row-span-6, .rw-sp-6) {
+                grid-row-end: span 6;
+            }
+
+            & > :is(.row-span-7, .rw-sp-7) {
+                grid-row-end: span 7;
+            }
+
+            & > :is(.row-span-8, .rw-sp-8) {
+                grid-row-end: span 8;
+            }
+
+            & > :is(.row-span-9, .rw-sp-9) {
+                grid-row-end: span 9;
+            }
+
+            & > :is(.row-span-10, .rw-sp-10) {
+                grid-row-end: span 10;
+            }
+
+            & > :is(.row-span-11, .rw-sp-11) {
+                grid-row-end: span 11;
+            }
+
+            & > :is(.row-span-12, .rw-sp-12) {
+                grid-row-end: span 12;
+            }
         }
 
-        .grid-12,
-        .gr-12 {
-            --dcss-grid-tracks: repeat(12, minmax(0, 1fr));
+        .grid-col-12,
+        .gr-c-12 {
+            --dcss-col-tracks: repeat(12, minmax(0, 1fr));
+        }
+
+        .grid-row-12,
+        .gr-r-12 {
+            --dcss-row-tracks: repeat(12, minmax(0, 1fr));
         }
     }
 }
