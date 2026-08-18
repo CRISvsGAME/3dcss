@@ -67,6 +67,14 @@
                 }
             }
 
+            & > :is(.site-bleed, .st-b, .site-bleed-start, .st-b-s) > :is(.site-start, .st-s) {
+                grid-column: full-start / cont-start;
+            }
+
+            & > :is(.site-bleed, .st-b, .site-bleed-end, .st-b-e) > :is(.site-end, .st-e) {
+                grid-column: cont-end / full-end;
+            }
+
             &
                 > :is(.site-bleed, .st-b, .site-bleed-start, .st-b-s, .site-bleed-end, .st-b-e)
                 > :is(.site-content, .st-c) {
