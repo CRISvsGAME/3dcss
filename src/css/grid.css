@@ -20,6 +20,19 @@
                 row-gap: var(--dcss-grid-gap-row, var(--dcss-grid-gap, 1rem));
             }
 
+            &:is(.grid-subgrid, .gr-sg) {
+                --dcss-col-tracks: subgrid;
+                --dcss-row-tracks: subgrid;
+            }
+
+            &:is(.grid-subgrid-col, .gr-sg-c) {
+                --dcss-col-tracks: subgrid;
+            }
+
+            &:is(.grid-subgrid-row, .gr-sg-r) {
+                --dcss-row-tracks: subgrid;
+            }
+
             & > :is(.col-start-1, .cl-s-1) {
                 grid-column-start: 1;
             }
