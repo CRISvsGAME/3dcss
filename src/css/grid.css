@@ -33,6 +33,30 @@
                 --dcss-row-tracks: subgrid;
             }
 
+            & > :is(.col-start, .cl-s) {
+                grid-column-start: var(--dcss-col-start);
+            }
+
+            & > :is(.col-end, .cl-e) {
+                grid-column-end: calc(var(--dcss-col-end) + 1);
+            }
+
+            & > :is(.col-span, .cl-sp) {
+                grid-column-end: span var(--dcss-col-span);
+            }
+
+            & > :is(.row-start, .rw-s) {
+                grid-row-start: var(--dcss-row-start);
+            }
+
+            & > :is(.row-end, .rw-e) {
+                grid-row-end: calc(var(--dcss-row-end) + 1);
+            }
+
+            & > :is(.row-span, .rw-sp) {
+                grid-row-end: span var(--dcss-row-span);
+            }
+
             & > :is(.col-start-1, .cl-s-1) {
                 grid-column-start: 1;
             }
