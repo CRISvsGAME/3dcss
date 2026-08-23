@@ -7,18 +7,6 @@
         grid-template-columns: var(--dcss-col-tracks);
         grid-template-rows: var(--dcss-row-tracks);
 
-        &:is(.grid-gap, .gr-g) {
-            gap: var(--dcss-grid-gap, 1rem);
-        }
-
-        &:is(.grid-gap-col, .gr-g-c) {
-            column-gap: var(--dcss-grid-gap-col, var(--dcss-grid-gap, 1rem));
-        }
-
-        &:is(.grid-gap-row, .gr-g-r) {
-            row-gap: var(--dcss-grid-gap-row, var(--dcss-grid-gap, 1rem));
-        }
-
         &:is(.grid-subgrid, .gr-sg) {
             --dcss-col-tracks: subgrid;
             --dcss-row-tracks: subgrid;
@@ -343,6 +331,27 @@
         & > :is(.row-span-12, .rw-sp-12) {
             grid-row-end: span 12;
         }
+    }
+
+    .grid.grid-gap,
+    .grid.gr-g,
+    .gr.grid-gap,
+    .gr.gr-g {
+        gap: var(--dcss-grid-gap, 1rem);
+    }
+
+    .grid.grid-gap-col,
+    .grid.gr-g-c,
+    .gr.grid-gap-col,
+    .gr.gr-g-c {
+        column-gap: var(--dcss-grid-gap-col, var(--dcss-grid-gap, 1rem));
+    }
+
+    .grid.grid-gap-row,
+    .grid.gr-g-r,
+    .gr.grid-gap-row,
+    .gr.gr-g-r {
+        row-gap: var(--dcss-grid-gap-row, var(--dcss-grid-gap, 1rem));
     }
 
     .grid-col-12,
