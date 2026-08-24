@@ -7,19 +7,6 @@
         grid-template-columns: var(--dcss-col-tracks);
         grid-template-rows: var(--dcss-row-tracks);
 
-        &:is(.grid-subgrid, .gr-sg) {
-            --dcss-col-tracks: subgrid;
-            --dcss-row-tracks: subgrid;
-        }
-
-        &:is(.grid-subgrid-col, .gr-sg-c) {
-            --dcss-col-tracks: subgrid;
-        }
-
-        &:is(.grid-subgrid-row, .gr-sg-r) {
-            --dcss-row-tracks: subgrid;
-        }
-
         & > :is(.col-start, .cl-s) {
             grid-column-start: var(--dcss-col-start);
         }
@@ -352,6 +339,28 @@
     .gr.grid-gap-row,
     .gr.gr-g-r {
         row-gap: var(--dcss-grid-gap-row, var(--dcss-grid-gap, 1rem));
+    }
+
+    .grid.grid-subgrid,
+    .grid.gr-sg,
+    .gr.grid-subgrid,
+    .gr.gr-sg {
+        --dcss-col-tracks: subgrid;
+        --dcss-row-tracks: subgrid;
+    }
+
+    .grid.grid-subgrid-col,
+    .grid.gr-sg-c,
+    .gr.grid-subgrid-col,
+    .gr.gr-sg-c {
+        --dcss-col-tracks: subgrid;
+    }
+
+    .grid.grid-subgrid-row,
+    .grid.gr-sg-r,
+    .gr.grid-subgrid-row,
+    .gr.gr-sg-r {
+        --dcss-row-tracks: subgrid;
     }
 
     .grid-col-12,
