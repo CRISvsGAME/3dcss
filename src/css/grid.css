@@ -1,4 +1,25 @@
 @layer layout {
+    .grid > .col-start,
+    .grid > .cl-s,
+    .gr > .col-start,
+    .gr > .cl-s {
+        grid-column-start: var(--dcss-col-start);
+    }
+
+    .grid > .col-end,
+    .grid > .cl-e,
+    .gr > .col-end,
+    .gr > .cl-e {
+        grid-column-end: calc(var(--dcss-col-end) + 1);
+    }
+
+    .grid > .col-span,
+    .grid > .cl-sp,
+    .gr > .col-span,
+    .gr > .cl-sp {
+        grid-column-end: span var(--dcss-col-span);
+    }
+
     .grid,
     .gr {
         --dcss-col-tracks: minmax(0, 1fr);
@@ -6,18 +27,6 @@
         display: grid;
         grid-template-columns: var(--dcss-col-tracks);
         grid-template-rows: var(--dcss-row-tracks);
-
-        & > :is(.col-start, .cl-s) {
-            grid-column-start: var(--dcss-col-start);
-        }
-
-        & > :is(.col-end, .cl-e) {
-            grid-column-end: calc(var(--dcss-col-end) + 1);
-        }
-
-        & > :is(.col-span, .cl-sp) {
-            grid-column-end: span var(--dcss-col-span);
-        }
 
         & > :is(.row-start, .rw-s) {
             grid-row-start: var(--dcss-row-start);
