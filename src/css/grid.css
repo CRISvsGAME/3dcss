@@ -20,6 +20,27 @@
         grid-column-end: span var(--dcss-col-span);
     }
 
+    .grid > .row-start,
+    .grid > .rw-s,
+    .gr > .row-start,
+    .gr > .rw-s {
+        grid-row-start: var(--dcss-row-start);
+    }
+
+    .grid > .row-end,
+    .grid > .rw-e,
+    .gr > .row-end,
+    .gr > .rw-e {
+        grid-row-end: calc(var(--dcss-row-end) + 1);
+    }
+
+    .grid > .row-span,
+    .grid > .rw-sp,
+    .gr > .row-span,
+    .gr > .rw-sp {
+        grid-row-end: span var(--dcss-row-span);
+    }
+
     .grid,
     .gr {
         --dcss-col-tracks: minmax(0, 1fr);
@@ -27,18 +48,6 @@
         display: grid;
         grid-template-columns: var(--dcss-col-tracks);
         grid-template-rows: var(--dcss-row-tracks);
-
-        & > :is(.row-start, .rw-s) {
-            grid-row-start: var(--dcss-row-start);
-        }
-
-        & > :is(.row-end, .rw-e) {
-            grid-row-end: calc(var(--dcss-row-end) + 1);
-        }
-
-        & > :is(.row-span, .rw-sp) {
-            grid-row-end: span var(--dcss-row-span);
-        }
 
         & > :is(.col-start-1, .cl-s-1) {
             grid-column-start: 1;
