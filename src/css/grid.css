@@ -41,6 +41,90 @@
         grid-row-end: span var(--dcss-row-span);
     }
 
+    .grid > .col-start-1,
+    .grid > .cl-s-1,
+    .gr > .col-start-1,
+    .gr > .cl-s-1 {
+        grid-column-start: 1;
+    }
+
+    .grid > .col-start-2,
+    .grid > .cl-s-2,
+    .gr > .col-start-2,
+    .gr > .cl-s-2 {
+        grid-column-start: 2;
+    }
+
+    .grid > .col-start-3,
+    .grid > .cl-s-3,
+    .gr > .col-start-3,
+    .gr > .cl-s-3 {
+        grid-column-start: 3;
+    }
+
+    .grid > .col-start-4,
+    .grid > .cl-s-4,
+    .gr > .col-start-4,
+    .gr > .cl-s-4 {
+        grid-column-start: 4;
+    }
+
+    .grid > .col-start-5,
+    .grid > .cl-s-5,
+    .gr > .col-start-5,
+    .gr > .cl-s-5 {
+        grid-column-start: 5;
+    }
+
+    .grid > .col-start-6,
+    .grid > .cl-s-6,
+    .gr > .col-start-6,
+    .gr > .cl-s-6 {
+        grid-column-start: 6;
+    }
+
+    .grid > .col-start-7,
+    .grid > .cl-s-7,
+    .gr > .col-start-7,
+    .gr > .cl-s-7 {
+        grid-column-start: 7;
+    }
+
+    .grid > .col-start-8,
+    .grid > .cl-s-8,
+    .gr > .col-start-8,
+    .gr > .cl-s-8 {
+        grid-column-start: 8;
+    }
+
+    .grid > .col-start-9,
+    .grid > .cl-s-9,
+    .gr > .col-start-9,
+    .gr > .cl-s-9 {
+        grid-column-start: 9;
+    }
+
+    .grid > .col-start-10,
+    .grid > .cl-s-10,
+    .gr > .col-start-10,
+    .gr > .cl-s-10 {
+        grid-column-start: 10;
+    }
+
+    .grid > .col-start-11,
+    .grid > .cl-s-11,
+    .gr > .col-start-11,
+    .gr > .cl-s-11 {
+        grid-column-start: 11;
+    }
+
+    .grid > .col-start-12,
+    .grid > .cl-s-12,
+    .gr > .col-start-12,
+    .gr > .cl-s-12 {
+        grid-column-start: 12;
+    }
+
     .grid,
     .gr {
         --dcss-col-tracks: minmax(0, 1fr);
@@ -48,54 +132,6 @@
         display: grid;
         grid-template-columns: var(--dcss-col-tracks);
         grid-template-rows: var(--dcss-row-tracks);
-
-        & > :is(.col-start-1, .cl-s-1) {
-            grid-column-start: 1;
-        }
-
-        & > :is(.col-start-2, .cl-s-2) {
-            grid-column-start: 2;
-        }
-
-        & > :is(.col-start-3, .cl-s-3) {
-            grid-column-start: 3;
-        }
-
-        & > :is(.col-start-4, .cl-s-4) {
-            grid-column-start: 4;
-        }
-
-        & > :is(.col-start-5, .cl-s-5) {
-            grid-column-start: 5;
-        }
-
-        & > :is(.col-start-6, .cl-s-6) {
-            grid-column-start: 6;
-        }
-
-        & > :is(.col-start-7, .cl-s-7) {
-            grid-column-start: 7;
-        }
-
-        & > :is(.col-start-8, .cl-s-8) {
-            grid-column-start: 8;
-        }
-
-        & > :is(.col-start-9, .cl-s-9) {
-            grid-column-start: 9;
-        }
-
-        & > :is(.col-start-10, .cl-s-10) {
-            grid-column-start: 10;
-        }
-
-        & > :is(.col-start-11, .cl-s-11) {
-            grid-column-start: 11;
-        }
-
-        & > :is(.col-start-12, .cl-s-12) {
-            grid-column-start: 12;
-        }
 
         & > :is(.col-end-1, .cl-e-1) {
             grid-column-end: 2;
