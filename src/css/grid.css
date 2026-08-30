@@ -293,6 +293,90 @@
         grid-column-end: span 12;
     }
 
+    .grid > .row-start-1,
+    .grid > .rw-s-1,
+    .gr > .row-start-1,
+    .gr > .rw-s-1 {
+        grid-row-start: 1;
+    }
+
+    .grid > .row-start-2,
+    .grid > .rw-s-2,
+    .gr > .row-start-2,
+    .gr > .rw-s-2 {
+        grid-row-start: 2;
+    }
+
+    .grid > .row-start-3,
+    .grid > .rw-s-3,
+    .gr > .row-start-3,
+    .gr > .rw-s-3 {
+        grid-row-start: 3;
+    }
+
+    .grid > .row-start-4,
+    .grid > .rw-s-4,
+    .gr > .row-start-4,
+    .gr > .rw-s-4 {
+        grid-row-start: 4;
+    }
+
+    .grid > .row-start-5,
+    .grid > .rw-s-5,
+    .gr > .row-start-5,
+    .gr > .rw-s-5 {
+        grid-row-start: 5;
+    }
+
+    .grid > .row-start-6,
+    .grid > .rw-s-6,
+    .gr > .row-start-6,
+    .gr > .rw-s-6 {
+        grid-row-start: 6;
+    }
+
+    .grid > .row-start-7,
+    .grid > .rw-s-7,
+    .gr > .row-start-7,
+    .gr > .rw-s-7 {
+        grid-row-start: 7;
+    }
+
+    .grid > .row-start-8,
+    .grid > .rw-s-8,
+    .gr > .row-start-8,
+    .gr > .rw-s-8 {
+        grid-row-start: 8;
+    }
+
+    .grid > .row-start-9,
+    .grid > .rw-s-9,
+    .gr > .row-start-9,
+    .gr > .rw-s-9 {
+        grid-row-start: 9;
+    }
+
+    .grid > .row-start-10,
+    .grid > .rw-s-10,
+    .gr > .row-start-10,
+    .gr > .rw-s-10 {
+        grid-row-start: 10;
+    }
+
+    .grid > .row-start-11,
+    .grid > .rw-s-11,
+    .gr > .row-start-11,
+    .gr > .rw-s-11 {
+        grid-row-start: 11;
+    }
+
+    .grid > .row-start-12,
+    .grid > .rw-s-12,
+    .gr > .row-start-12,
+    .gr > .rw-s-12 {
+        grid-row-start: 12;
+    }
+
     .grid,
     .gr {
         --dcss-col-tracks: minmax(0, 1fr);
@@ -300,54 +384,6 @@
         display: grid;
         grid-template-columns: var(--dcss-col-tracks);
         grid-template-rows: var(--dcss-row-tracks);
-
-        & > :is(.row-start-1, .rw-s-1) {
-            grid-row-start: 1;
-        }
-
-        & > :is(.row-start-2, .rw-s-2) {
-            grid-row-start: 2;
-        }
-
-        & > :is(.row-start-3, .rw-s-3) {
-            grid-row-start: 3;
-        }
-
-        & > :is(.row-start-4, .rw-s-4) {
-            grid-row-start: 4;
-        }
-
-        & > :is(.row-start-5, .rw-s-5) {
-            grid-row-start: 5;
-        }
-
-        & > :is(.row-start-6, .rw-s-6) {
-            grid-row-start: 6;
-        }
-
-        & > :is(.row-start-7, .rw-s-7) {
-            grid-row-start: 7;
-        }
-
-        & > :is(.row-start-8, .rw-s-8) {
-            grid-row-start: 8;
-        }
-
-        & > :is(.row-start-9, .rw-s-9) {
-            grid-row-start: 9;
-        }
-
-        & > :is(.row-start-10, .rw-s-10) {
-            grid-row-start: 10;
-        }
-
-        & > :is(.row-start-11, .rw-s-11) {
-            grid-row-start: 11;
-        }
-
-        & > :is(.row-start-12, .rw-s-12) {
-            grid-row-start: 12;
-        }
 
         & > :is(.row-end-1, .rw-e-1) {
             grid-row-end: 2;
