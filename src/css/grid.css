@@ -1,4 +1,56 @@
 @layer layout {
+    .grid,
+    .gr {
+        --dcss-col-tracks: minmax(0, 1fr);
+        --dcss-row-tracks: none;
+        display: grid;
+        grid-template-columns: var(--dcss-col-tracks);
+        grid-template-rows: var(--dcss-row-tracks);
+    }
+
+    .grid.grid-gap,
+    .grid.gr-g,
+    .gr.grid-gap,
+    .gr.gr-g {
+        gap: var(--dcss-grid-gap, 1rem);
+    }
+
+    .grid.grid-gap-col,
+    .grid.gr-g-c,
+    .gr.grid-gap-col,
+    .gr.gr-g-c {
+        column-gap: var(--dcss-grid-gap-col, var(--dcss-grid-gap, 1rem));
+    }
+
+    .grid.grid-gap-row,
+    .grid.gr-g-r,
+    .gr.grid-gap-row,
+    .gr.gr-g-r {
+        row-gap: var(--dcss-grid-gap-row, var(--dcss-grid-gap, 1rem));
+    }
+
+    .grid.grid-subgrid,
+    .grid.gr-sg,
+    .gr.grid-subgrid,
+    .gr.gr-sg {
+        --dcss-col-tracks: subgrid;
+        --dcss-row-tracks: subgrid;
+    }
+
+    .grid.grid-subgrid-col,
+    .grid.gr-sg-c,
+    .gr.grid-subgrid-col,
+    .gr.gr-sg-c {
+        --dcss-col-tracks: subgrid;
+    }
+
+    .grid.grid-subgrid-row,
+    .grid.gr-sg-r,
+    .gr.grid-subgrid-row,
+    .gr.gr-sg-r {
+        --dcss-row-tracks: subgrid;
+    }
+
     .grid > .col-start,
     .grid > .cl-s,
     .gr > .col-start,
@@ -461,104 +513,88 @@
         grid-row-end: 13;
     }
 
-    .grid,
-    .gr {
-        --dcss-col-tracks: minmax(0, 1fr);
-        --dcss-row-tracks: none;
-        display: grid;
-        grid-template-columns: var(--dcss-col-tracks);
-        grid-template-rows: var(--dcss-row-tracks);
-
-        & > :is(.row-span-1, .rw-sp-1) {
-            grid-row-end: span 1;
-        }
-
-        & > :is(.row-span-2, .rw-sp-2) {
-            grid-row-end: span 2;
-        }
-
-        & > :is(.row-span-3, .rw-sp-3) {
-            grid-row-end: span 3;
-        }
-
-        & > :is(.row-span-4, .rw-sp-4) {
-            grid-row-end: span 4;
-        }
-
-        & > :is(.row-span-5, .rw-sp-5) {
-            grid-row-end: span 5;
-        }
-
-        & > :is(.row-span-6, .rw-sp-6) {
-            grid-row-end: span 6;
-        }
-
-        & > :is(.row-span-7, .rw-sp-7) {
-            grid-row-end: span 7;
-        }
-
-        & > :is(.row-span-8, .rw-sp-8) {
-            grid-row-end: span 8;
-        }
-
-        & > :is(.row-span-9, .rw-sp-9) {
-            grid-row-end: span 9;
-        }
-
-        & > :is(.row-span-10, .rw-sp-10) {
-            grid-row-end: span 10;
-        }
-
-        & > :is(.row-span-11, .rw-sp-11) {
-            grid-row-end: span 11;
-        }
-
-        & > :is(.row-span-12, .rw-sp-12) {
-            grid-row-end: span 12;
-        }
+    .grid > .row-span-1,
+    .grid > .rw-sp-1,
+    .gr > .row-span-1,
+    .gr > .rw-sp-1 {
+        grid-row-end: span 1;
     }
 
-    .grid.grid-gap,
-    .grid.gr-g,
-    .gr.grid-gap,
-    .gr.gr-g {
-        gap: var(--dcss-grid-gap, 1rem);
+    .grid > .row-span-2,
+    .grid > .rw-sp-2,
+    .gr > .row-span-2,
+    .gr > .rw-sp-2 {
+        grid-row-end: span 2;
     }
 
-    .grid.grid-gap-col,
-    .grid.gr-g-c,
-    .gr.grid-gap-col,
-    .gr.gr-g-c {
-        column-gap: var(--dcss-grid-gap-col, var(--dcss-grid-gap, 1rem));
+    .grid > .row-span-3,
+    .grid > .rw-sp-3,
+    .gr > .row-span-3,
+    .gr > .rw-sp-3 {
+        grid-row-end: span 3;
     }
 
-    .grid.grid-gap-row,
-    .grid.gr-g-r,
-    .gr.grid-gap-row,
-    .gr.gr-g-r {
-        row-gap: var(--dcss-grid-gap-row, var(--dcss-grid-gap, 1rem));
+    .grid > .row-span-4,
+    .grid > .rw-sp-4,
+    .gr > .row-span-4,
+    .gr > .rw-sp-4 {
+        grid-row-end: span 4;
     }
 
-    .grid.grid-subgrid,
-    .grid.gr-sg,
-    .gr.grid-subgrid,
-    .gr.gr-sg {
-        --dcss-col-tracks: subgrid;
-        --dcss-row-tracks: subgrid;
+    .grid > .row-span-5,
+    .grid > .rw-sp-5,
+    .gr > .row-span-5,
+    .gr > .rw-sp-5 {
+        grid-row-end: span 5;
     }
 
-    .grid.grid-subgrid-col,
-    .grid.gr-sg-c,
-    .gr.grid-subgrid-col,
-    .gr.gr-sg-c {
-        --dcss-col-tracks: subgrid;
+    .grid > .row-span-6,
+    .grid > .rw-sp-6,
+    .gr > .row-span-6,
+    .gr > .rw-sp-6 {
+        grid-row-end: span 6;
     }
 
-    .grid.grid-subgrid-row,
-    .grid.gr-sg-r,
-    .gr.grid-subgrid-row,
-    .gr.gr-sg-r {
-        --dcss-row-tracks: subgrid;
+    .grid > .row-span-7,
+    .grid > .rw-sp-7,
+    .gr > .row-span-7,
+    .gr > .rw-sp-7 {
+        grid-row-end: span 7;
+    }
+
+    .grid > .row-span-8,
+    .grid > .rw-sp-8,
+    .gr > .row-span-8,
+    .gr > .rw-sp-8 {
+        grid-row-end: span 8;
+    }
+
+    .grid > .row-span-9,
+    .grid > .rw-sp-9,
+    .gr > .row-span-9,
+    .gr > .rw-sp-9 {
+        grid-row-end: span 9;
+    }
+
+    .grid > .row-span-10,
+    .grid > .rw-sp-10,
+    .gr > .row-span-10,
+    .gr > .rw-sp-10 {
+        grid-row-end: span 10;
+    }
+
+    .grid > .row-span-11,
+    .grid > .rw-sp-11,
+    .gr > .row-span-11,
+    .gr > .rw-sp-11 {
+        grid-row-end: span 11;
+    }
+
+    .grid > .row-span-12,
+    .grid > .rw-sp-12,
+    .gr > .row-span-12,
+    .gr > .rw-sp-12 {
+        grid-row-end: span 12;
     }
 
     .grid-col-12,
