@@ -9,21 +9,6 @@
             [cont-end] minmax(var(--dcss-site-min-gutter-end, 0), var(--dcss-site-space-end, 1fr))
             [full-end];
 
-        &:is(.site-align-start, .st-a-s) {
-            --dcss-site-space-start: 0fr;
-            --dcss-site-space-end: 1fr;
-        }
-
-        &:is(.site-align-center, .st-a-c) {
-            --dcss-site-space-start: 1fr;
-            --dcss-site-space-end: 1fr;
-        }
-
-        &:is(.site-align-end, .st-a-e) {
-            --dcss-site-space-start: 1fr;
-            --dcss-site-space-end: 0fr;
-        }
-
         &:is(.site-gutter, .st-g, .site-gutter-start, .st-g-s) {
             --dcss-site-min-gutter-start: var(--dcss-site-gutter-start, var(--dcss-site-gutter, 1rem));
         }
@@ -77,5 +62,29 @@
         & > :is(.site-bleed, .st-b, .site-bleed-start, .st-b-s, .site-bleed-end, .st-b-e) > :is(.site-content, .st-c) {
             grid-column: cont-start / cont-end;
         }
+    }
+
+    .site.site-align-start,
+    .site.st-a-s,
+    .st.site-align-start,
+    .st.st-a-s {
+        --dcss-site-space-start: 0fr;
+        --dcss-site-space-end: 1fr;
+    }
+
+    .site.site-align-center,
+    .site.st-a-c,
+    .st.site-align-center,
+    .st.st-a-c {
+        --dcss-site-space-start: 1fr;
+        --dcss-site-space-end: 1fr;
+    }
+
+    .site.site-align-end,
+    .site.st-a-e,
+    .st.site-align-end,
+    .st.st-a-e {
+        --dcss-site-space-start: 1fr;
+        --dcss-site-space-end: 0fr;
     }
 }
