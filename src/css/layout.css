@@ -9,14 +9,6 @@
             [cont-end] minmax(var(--dcss-site-min-gutter-end, 0), var(--dcss-site-space-end, 1fr))
             [full-end];
 
-        &:is(.site-gutter, .st-g, .site-gutter-start, .st-g-s) {
-            --dcss-site-min-gutter-start: var(--dcss-site-gutter-start, var(--dcss-site-gutter, 1rem));
-        }
-
-        &:is(.site-gutter, .st-g, .site-gutter-end, .st-g-e) {
-            --dcss-site-min-gutter-end: var(--dcss-site-gutter-end, var(--dcss-site-gutter, 1rem));
-        }
-
         & > * {
             grid-column: cont-start / cont-end;
         }
@@ -86,5 +78,27 @@
     .st.st-a-e {
         --dcss-site-space-start: 1fr;
         --dcss-site-space-end: 0fr;
+    }
+
+    .site.site-gutter,
+    .site.st-g,
+    .site.site-gutter-start,
+    .site.st-g-s,
+    .st.site-gutter,
+    .st.st-g,
+    .st.site-gutter-start,
+    .st.st-g-s {
+        --dcss-site-min-gutter-start: var(--dcss-site-gutter-start, var(--dcss-site-gutter, 1rem));
+    }
+
+    .site.site-gutter,
+    .site.st-g,
+    .site.site-gutter-end,
+    .site.st-g-e,
+    .st.site-gutter,
+    .st.st-g,
+    .st.site-gutter-end,
+    .st.st-g-e {
+        --dcss-site-min-gutter-end: var(--dcss-site-gutter-end, var(--dcss-site-gutter, 1rem));
     }
 }
