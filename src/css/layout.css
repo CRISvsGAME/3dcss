@@ -9,10 +9,6 @@
             [cont-end] minmax(var(--dcss-site-min-gutter-end, 0), var(--dcss-site-space-end, 1fr))
             [full-end];
 
-        & > * {
-            grid-column: cont-start / cont-end;
-        }
-
         & > :is(.site-bleed, .st-b) {
             display: grid;
             grid-column: full-start / full-end;
@@ -100,5 +96,10 @@
     .st.site-gutter-end,
     .st.st-g-e {
         --dcss-site-min-gutter-end: var(--dcss-site-gutter-end, var(--dcss-site-gutter, 1rem));
+    }
+
+    .site > *,
+    .st > * {
+        grid-column: cont-start / cont-end;
     }
 }
