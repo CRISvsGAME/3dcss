@@ -9,16 +9,6 @@
             [cont-end] minmax(var(--dcss-site-min-gutter-end, 0), var(--dcss-site-space-end, 1fr))
             [full-end];
 
-        & > :is(.site-bleed, .st-b) {
-            display: grid;
-            grid-column: full-start / full-end;
-            grid-template-columns: subgrid;
-
-            & > * {
-                grid-column: full-start / full-end;
-            }
-        }
-
         & > :is(.site-bleed-start, .st-b-s) {
             display: grid;
             grid-column: full-start / cont-end;
@@ -101,5 +91,21 @@
     .site > *,
     .st > * {
         grid-column: cont-start / cont-end;
+    }
+
+    .site > .site-bleed,
+    .site > .st-b,
+    .st > .site-bleed,
+    .st > .st-b {
+        display: grid;
+        grid-column: full-start / full-end;
+        grid-template-columns: subgrid;
+    }
+
+    .site > .site-bleed > *,
+    .site > .st-b > *,
+    .st > .site-bleed > *,
+    .st > .st-b > * {
+        grid-column: full-start / full-end;
     }
 }
