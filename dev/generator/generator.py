@@ -3,10 +3,12 @@
 Script to generate 3DCSS from source image.
 """
 
-import sys
-import re
 import os
+import re
+import shutil
+import sys
 import urllib.parse
+import urllib.request
 
 if len(sys.argv) < 3:
     print("Usage: generator.py <url> <output> [<width>] [<height>]")
@@ -26,3 +28,15 @@ def generate_filename(url: str) -> str:
     safe_name = re.sub(r"[^a-zA-Z0-9]", "_", name) or "source"
     safe_ext = re.sub(r"[^a-zA-Z0-9]", "", ext[1:])
     return f"{safe_name}.{safe_ext}" if safe_ext else safe_name
+
+
+def download_source(url: str, dest: str) -> None:
+    """Download Source"""
+    request = urllib.request.Request(url, headers={"User-Agent": "3DCSS-Generator"})
+    with urllib.request.urlopen(request, timeout=10) as response:
+        with open(dest, "wb") as file:
+            shutil.copyfileobj(response, file)
+
+
+SRC = generate_filename(URL)
+download_source(URL, SRC)
