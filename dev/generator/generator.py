@@ -9,34 +9,38 @@ import shutil
 import sys
 import urllib.parse
 import urllib.request
+from pathlib import Path
 
 if len(sys.argv) < 3:
     print("Usage: generator.py <url> <output> [<width>] [<height>]")
     sys.exit(1)
 
-URL, OUT = sys.argv[1], sys.argv[2]
-WIDTH = sys.argv[3] if len(sys.argv) > 3 else None
-HEIGHT = sys.argv[4] if len(sys.argv) > 4 else None
+URL = sys.argv[1]
+OUT = Path(sys.argv[2]).expanduser()
+WIDTH = int(sys.argv[3]) if len(sys.argv) > 3 else 0
+HEIGHT = int(sys.argv[4]) if len(sys.argv) > 4 else 0
 
 
-def generate_filename(url: str) -> str:
-    """Generate Filename"""
+def generate_filepath(url: str, dest: Path) -> Path:
+    """Generate Filepath"""
     raw_path = urllib.parse.urlparse(url).path
     dec_path = urllib.parse.unquote(raw_path)
     raw_name = os.path.basename(dec_path)
     name, ext = os.path.splitext(raw_name)
     safe_name = re.sub(r"[^a-zA-Z0-9]", "_", name) or "source"
     safe_ext = re.sub(r"[^a-zA-Z0-9]", "", ext[1:])
-    return f"{safe_name}.{safe_ext}" if safe_ext else safe_name
+    filename = f"{safe_name}.{safe_ext}" if safe_ext else safe_name
+    return dest / filename
 
 
-def download_source(url: str, dest: str) -> None:
+def download_source(url: str, dest: Path) -> None:
     """Download Source"""
+    dest.parent.mkdir(parents=True, exist_ok=True)
     request = urllib.request.Request(url, headers={"User-Agent": "3DCSS-Generator"})
     with urllib.request.urlopen(request, timeout=10) as response:
         with open(dest, "wb") as file:
             shutil.copyfileobj(response, file)
 
 
-SRC = generate_filename(URL)
+SRC = generate_filepath(URL, OUT)
 download_source(URL, SRC)
