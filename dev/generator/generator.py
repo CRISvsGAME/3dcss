@@ -10,6 +10,7 @@ import sys
 import urllib.parse
 import urllib.request
 from pathlib import Path
+from PIL import Image
 
 if len(sys.argv) < 3:
     print("Usage: generator.py <url> <output> [<width>] [<height>]")
@@ -42,5 +43,12 @@ def download_source(url: str, dest: Path) -> None:
             shutil.copyfileobj(response, file)
 
 
+def load_image(src: Path) -> Image.Image:
+    """Resize Image"""
+    with Image.open(src) as image:
+        return image.convert("RGB")
+
+
 SRC = generate_filepath(URL, OUT)
 download_source(URL, SRC)
+IMG = load_image(SRC)
