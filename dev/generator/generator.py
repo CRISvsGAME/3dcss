@@ -49,6 +49,21 @@ def load_image(src: Path) -> Image.Image:
         return image.convert("RGB")
 
 
+def calculate_dimensions(img: Image.Image, width: int, height: int) -> tuple[int, int]:
+    """Calculate Dimensions"""
+    src_width, src_height = img.size
+    if width < 0 or height < 0:
+        raise ValueError("Width and height must be positive")
+    if width == 0 and height == 0:
+        return src_width, src_height
+    if width == 0:
+        return max(1, round(src_width * height / src_height)), height
+    if height == 0:
+        return width, max(1, round(src_height * width / src_width))
+    return width, height
+
+
 SRC = generate_filepath(URL, OUT)
 download_source(URL, SRC)
 IMG = load_image(SRC)
+TARGET_WIDTH, TARGET_HEIGHT = calculate_dimensions(IMG, WIDTH, HEIGHT)
