@@ -3,6 +3,7 @@
 Script to generate 3DCSS from source image.
 """
 
+import math
 import os
 import re
 import shutil
@@ -44,7 +45,7 @@ def download_source(url: str, dest: Path) -> None:
 
 
 def load_image(src: Path) -> Image.Image:
-    """Resize Image"""
+    """Load Image"""
     with Image.open(src) as image:
         return image.convert("RGB")
 
@@ -63,7 +64,23 @@ def calculate_dimensions(img: Image.Image, width: int, height: int) -> tuple[int
     return width, height
 
 
+def resize_image(img: Image.Image, width: int, height: int) -> Image.Image:
+    """Resize Image"""
+    src_width, src_height = img.size
+    scale = max(width / src_width, height / src_height)
+    scaled_width = math.ceil(src_width * scale)
+    scaled_height = math.ceil(src_height * scale)
+    scaled_size = (scaled_width, scaled_height)
+    scaled = img.resize(  # pyright: ignore[reportUnknownMemberType]
+        scaled_size, resample=Image.Resampling.LANCZOS
+    )
+    left = (scaled_width - width) // 2
+    top = (scaled_height - height) // 2
+    return scaled.crop((left, top, left + width, top + height))
+
+
 SRC = generate_filepath(URL, OUT)
 download_source(URL, SRC)
-IMG = load_image(SRC)
-TARGET_WIDTH, TARGET_HEIGHT = calculate_dimensions(IMG, WIDTH, HEIGHT)
+img = load_image(SRC)
+TARGET_WIDTH, TARGET_HEIGHT = calculate_dimensions(img, WIDTH, HEIGHT)
+img = resize_image(img, TARGET_WIDTH, TARGET_HEIGHT)
