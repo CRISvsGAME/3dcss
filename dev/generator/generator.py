@@ -46,8 +46,8 @@ def download_source(url: str, dest: Path) -> None:
 
 def load_image(src: Path) -> Image.Image:
     """Load Image"""
-    with Image.open(src) as image:
-        return image.convert("RGB")
+    with Image.open(src) as src_img:
+        return src_img.convert("RGB")
 
 
 def calculate_dimensions(img: Image.Image, width: int, height: int) -> tuple[int, int]:
@@ -81,6 +81,6 @@ def resize_image(img: Image.Image, width: int, height: int) -> Image.Image:
 
 SRC = generate_filepath(URL, OUT)
 download_source(URL, SRC)
-img = load_image(SRC)
-TARGET_WIDTH, TARGET_HEIGHT = calculate_dimensions(img, WIDTH, HEIGHT)
-img = resize_image(img, TARGET_WIDTH, TARGET_HEIGHT)
+image = load_image(SRC)
+TARGET_WIDTH, TARGET_HEIGHT = calculate_dimensions(image, WIDTH, HEIGHT)
+image = resize_image(image, TARGET_WIDTH, TARGET_HEIGHT)
