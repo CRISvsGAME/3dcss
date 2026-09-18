@@ -3,7 +3,6 @@
 Script to generate 3DCSS from source image.
 """
 
-import math
 import os
 import re
 import shutil
@@ -11,7 +10,7 @@ import sys
 import urllib.parse
 import urllib.request
 from pathlib import Path
-from PIL import Image
+from PIL import Image, ImageOps
 
 if len(sys.argv) < 3:
     print("Usage: generator.py <url> <output> [<width>] [<height>]")
@@ -66,17 +65,9 @@ def calculate_dimensions(img: Image.Image, width: int, height: int) -> tuple[int
 
 def resize_image(img: Image.Image, width: int, height: int) -> Image.Image:
     """Resize Image"""
-    src_width, src_height = img.size
-    scale = max(width / src_width, height / src_height)
-    scaled_width = math.ceil(src_width * scale)
-    scaled_height = math.ceil(src_height * scale)
-    scaled_size = (scaled_width, scaled_height)
-    scaled = img.resize(  # pyright: ignore[reportUnknownMemberType]
-        scaled_size, resample=Image.Resampling.LANCZOS
-    )
-    left = (scaled_width - width) // 2
-    top = (scaled_height - height) // 2
-    return scaled.crop((left, top, left + width, top + height))
+    if img.size == (width, height):
+        return img
+    return ImageOps.fit(img, (width, height), method=Image.Resampling.LANCZOS)
 
 
 SRC = generate_filepath(URL, OUT)
