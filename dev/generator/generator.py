@@ -70,8 +70,14 @@ def resize_image(img: Image.Image, width: int, height: int) -> Image.Image:
     return ImageOps.fit(img, (width, height), method=Image.Resampling.LANCZOS)
 
 
+def quantize_image(img: Image.Image, colors: int = 256) -> Image.Image:
+    """Quantize Image"""
+    return img.quantize(colors=colors, method=Image.Quantize.MEDIANCUT)
+
+
 SRC = generate_filepath(URL, OUT)
 download_source(URL, SRC)
 image = load_image(SRC)
 TARGET_WIDTH, TARGET_HEIGHT = calculate_dimensions(image, WIDTH, HEIGHT)
 image = resize_image(image, TARGET_WIDTH, TARGET_HEIGHT)
+image = quantize_image(image)
