@@ -9,12 +9,26 @@ import shutil
 import sys
 import urllib.parse
 import urllib.request
+from dataclasses import dataclass
 from pathlib import Path
+from typing import Literal, cast
 from PIL import Image, ImageOps
 
 if len(sys.argv) < 3:
     print("Usage: generator.py <url> <output> [<width>] [<height>]")
     sys.exit(1)
+
+
+@dataclass(slots=True)
+class Rectangle:
+    """Reactangle"""
+
+    x: int
+    y: int
+    width: int
+    height: int
+    color_index: int
+
 
 URL = sys.argv[1]
 OUT = Path(sys.argv[2]).expanduser()
@@ -73,6 +87,53 @@ def resize_image(img: Image.Image, width: int, height: int) -> Image.Image:
 def quantize_image(img: Image.Image, colors: int = 256) -> Image.Image:
     """Quantize Image"""
     return img.quantize(colors=colors, method=Image.Quantize.MEDIANCUT)
+
+
+# pylint: disable=too-many-locals
+def extract_rectangles(
+    img: Image.Image, orientation: Literal["H", "V"]
+) -> list[Rectangle]:
+    """Extract Rectangles"""
+    if img.mode != "P":
+        raise ValueError("Image must be in palette mode")
+    if orientation not in ("H", "V"):
+        raise ValueError("Orientation must be 'H' or 'V'")
+    horizontal = orientation == "H"
+    width, height = img.size
+    number_of_lines = height if horizontal else width
+    length_of_line = width if horizontal else height
+    rectangles: list[Rectangle] = []
+    active: dict[tuple[int, int, int], Rectangle] = {}
+    for line in range(number_of_lines):
+        position = 0
+        next_active: dict[tuple[int, int, int], Rectangle] = {}
+        while position < length_of_line:
+            start = position
+            x, y = (position, line) if horizontal else (line, position)
+            color_index = cast(int, img.getpixel((x, y)))
+            position += 1
+            while position < length_of_line:
+                x, y = (position, line) if horizontal else (line, position)
+                if img.getpixel((x, y)) != color_index:
+                    break
+                position += 1
+            length = position - start
+            key = (start, length, color_index)
+            rect = active.pop(key, None)
+            if rect is None:
+                if horizontal:
+                    rect = Rectangle(start, line, length, 1, color_index)
+                else:
+                    rect = Rectangle(line, start, 1, length, color_index)
+            elif horizontal:
+                rect.height += 1
+            else:
+                rect.width += 1
+            next_active[key] = rect
+        rectangles.extend(active.values())
+        active = next_active
+    rectangles.extend(active.values())
+    return rectangles
 
 
 SRC = generate_filepath(URL, OUT)
