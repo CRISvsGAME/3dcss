@@ -136,9 +136,19 @@ def extract_rectangles(
     return rectangles
 
 
+def select_rectangles(img: Image.Image) -> list[Rectangle]:
+    """Select Rectangles"""
+    horizontal = extract_rectangles(img, "H")
+    vertical = extract_rectangles(img, "V")
+    if len(horizontal) <= len(vertical):
+        return horizontal
+    return vertical
+
+
 SRC = generate_filepath(URL, OUT)
 download_source(URL, SRC)
 image = load_image(SRC)
 TARGET_WIDTH, TARGET_HEIGHT = calculate_dimensions(image, WIDTH, HEIGHT)
 image = resize_image(image, TARGET_WIDTH, TARGET_HEIGHT)
 image = quantize_image(image)
+rects = select_rectangles(image)
