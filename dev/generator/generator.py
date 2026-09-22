@@ -145,6 +145,24 @@ def select_rectangles(img: Image.Image) -> list[Rectangle]:
     return vertical
 
 
+def generate_palette(img: Image.Image, rectangles: list[Rectangle], dest: Path) -> None:
+    """Generate Palette"""
+    if img.mode != "P":
+        raise ValueError("Image must be in palette mode")
+    palette = img.getpalette()
+    if palette is None:
+        raise ValueError("Image must contain a colour palette")
+    indices = sorted({rect.color_index for rect in rectangles})
+    rules: list[str] = []
+    for index in indices:
+        offset = index * 3
+        red, green, blue = palette[offset : offset + 3]
+        rules.append(f".c{index} {{ background-color: rgb({red} {green} {blue}); }}")
+    css = "\n".join(rules)
+    css_file = dest.parent / "main.css"
+    css_file.write_text(css + "\n", encoding="utf-8")
+
+
 SRC = generate_filepath(URL, OUT)
 download_source(URL, SRC)
 image = load_image(SRC)
@@ -152,3 +170,4 @@ TARGET_WIDTH, TARGET_HEIGHT = calculate_dimensions(image, WIDTH, HEIGHT)
 image = resize_image(image, TARGET_WIDTH, TARGET_HEIGHT)
 image = quantize_image(image)
 rects = select_rectangles(image)
+generate_palette(image, rects, SRC)
