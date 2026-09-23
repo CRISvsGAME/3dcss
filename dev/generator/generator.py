@@ -3,6 +3,7 @@
 Script to generate 3DCSS from source image.
 """
 
+import json
 import os
 import re
 import shutil
@@ -145,6 +146,19 @@ def select_rectangles(img: Image.Image) -> list[Rectangle]:
     return vertical
 
 
+def download_3dcss(dest: Path) -> None:
+    """Download 3DCSS"""
+    url = "https://api.github.com/repos/CRISvsGAME/3dcss/contents/src/css"
+    request = urllib.request.Request(
+        url, headers={"User-Agent": "3DCSS-Generator", "Accept": "application/json"}
+    )
+    with urllib.request.urlopen(request, timeout=10) as response:
+        files = json.load(response)
+    for file in files:
+        if file["type"] == "file":
+            download_source(file["download_url"], dest / "css" / file["name"])
+
+
 def generate_palette(img: Image.Image, rectangles: list[Rectangle], dest: Path) -> None:
     """Generate Palette"""
     if img.mode != "P":
@@ -158,8 +172,8 @@ def generate_palette(img: Image.Image, rectangles: list[Rectangle], dest: Path) 
         offset = index * 3
         red, green, blue = palette[offset : offset + 3]
         rules.append(f".c{index} {{ background-color: rgb({red} {green} {blue}); }}")
-    css = "\n".join(rules)
-    css_file = dest.parent / "main.css"
+    css = '@import "./css/index.css";\n' + "\n".join(rules)
+    css_file = dest / "main.css"
     css_file.write_text(css + "\n", encoding="utf-8")
 
 
@@ -170,4 +184,5 @@ TARGET_WIDTH, TARGET_HEIGHT = calculate_dimensions(image, WIDTH, HEIGHT)
 image = resize_image(image, TARGET_WIDTH, TARGET_HEIGHT)
 image = quantize_image(image)
 rects = select_rectangles(image)
-generate_palette(image, rects, SRC)
+download_3dcss(OUT)
+generate_palette(image, rects, OUT)
