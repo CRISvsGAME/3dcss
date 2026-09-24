@@ -172,9 +172,37 @@ def generate_palette(img: Image.Image, rectangles: list[Rectangle], dest: Path) 
         offset = index * 3
         red, green, blue = palette[offset : offset + 3]
         rules.append(f".c{index} {{ background-color: rgb({red} {green} {blue}); }}")
-    css = '@import "./css/index.css";\n' + "\n".join(rules)
+    css = '@import "./css/index.css";\n' + "\n".join(rules) + "\n"
     css_file = dest / "main.css"
-    css_file.write_text(css + "\n", encoding="utf-8")
+    css_file.write_text(css, encoding="utf-8")
+
+
+def generate_grid(img: Image.Image, rectangles: list[Rectangle], dest: Path) -> None:
+    """Generate Grid"""
+    width, height = img.size
+    col_starts = sorted({rect.x + 1 for rect in rectangles})
+    row_starts = sorted({rect.y + 1 for rect in rectangles})
+    col_spans = sorted({rect.width for rect in rectangles})
+    row_spans = sorted({rect.height for rect in rectangles})
+    rules = [
+        ".image-grid {",
+        f"    --dcss-col-tracks: repeat({width}, minmax(0, 1fr));",
+        f"    --dcss-row-tracks: repeat({height}, minmax(0, 1fr));",
+        f"    aspect-ratio: {width} / {height};",
+        "}",
+    ]
+    for value in col_starts:
+        rules.append(f".gx{value} {{ grid-column-start: {value}; }}")
+    for value in row_starts:
+        rules.append(f".gy{value} {{ grid-row-start: {value}; }}")
+    for value in col_spans:
+        rules.append(f".gw{value} {{ grid-column-end: span {value}; }}")
+    for value in row_spans:
+        rules.append(f".gh{value} {{ grid-row-end: span {value}; }}")
+    css = "\n".join(rules) + "\n"
+    css_file = dest / "main.css"
+    with css_file.open("a", encoding="utf-8") as file:
+        file.write(css)
 
 
 SRC = generate_filepath(URL, OUT)
@@ -186,3 +214,4 @@ image = quantize_image(image)
 rects = select_rectangles(image)
 download_3dcss(OUT)
 generate_palette(image, rects, OUT)
+generate_grid(image, rects, OUT)
