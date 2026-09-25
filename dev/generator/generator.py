@@ -205,6 +205,34 @@ def generate_grid(img: Image.Image, rectangles: list[Rectangle], dest: Path) -> 
         file.write(css)
 
 
+def generate_html(rectangles: list[Rectangle], dest: Path) -> None:
+    """Generate HTML"""
+    html_file = dest / "index.html"
+
+    with html_file.open("w", encoding="utf-8") as file:
+        file.write("""<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3DCSS Image</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<div class="gr image-grid" role="img" aria-label="3DCSS Image">
+""")
+        for rect in rectangles:
+            file.write(
+                f'    <i class="c{rect.color_index} '
+                f"gx{rect.x + 1} gy{rect.y + 1} "
+                f'gw{rect.width} gh{rect.height}"></i>\n'
+            )
+        file.write("""</div>
+</body>
+</html>
+""")
+
+
 SRC = generate_filepath(URL, OUT)
 download_source(URL, SRC)
 image = load_image(SRC)
@@ -215,3 +243,4 @@ rects = select_rectangles(image)
 download_3dcss(OUT)
 generate_palette(image, rects, OUT)
 generate_grid(image, rects, OUT)
+generate_html(rects, OUT)
