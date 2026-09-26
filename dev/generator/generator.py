@@ -185,6 +185,11 @@ def generate_grid(img: Image.Image, rectangles: list[Rectangle], dest: Path) -> 
     col_spans = sorted({rect.width for rect in rectangles})
     row_spans = sorted({rect.height for rect in rectangles})
     rules = [
+        ".image-viewport {",
+        f"    --dcss-site-max: min(100%, calc(100dvh * {width} / {height}));",
+        "    block-size: 100dvh;",
+        "    align-items: center;",
+        "}",
         ".image-grid {",
         f"    --dcss-col-tracks: repeat({width}, minmax(0, 1fr));",
         f"    --dcss-row-tracks: repeat({height}, minmax(0, 1fr));",
@@ -218,7 +223,7 @@ def generate_html(rectangles: list[Rectangle], dest: Path) -> None:
     <title>3DCSS Image</title>
     <link rel="stylesheet" href="main.css">
 </head>
-<body>
+<body class="st image-viewport">
 <div class="gr image-grid" role="img" aria-label="3DCSS Image">
 """)
         for rect in rectangles:
