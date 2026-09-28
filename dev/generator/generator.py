@@ -185,6 +185,17 @@ def generate_grid(img: Image.Image, rectangles: list[Rectangle], dest: Path) -> 
     col_spans = sorted({rect.width for rect in rectangles})
     row_spans = sorted({rect.height for rect in rectangles})
     rules = [
+        ".image-credit {",
+        "    border-radius: 0.375rem;",
+        "    padding: 0.5rem 0.75rem;",
+        "    position: fixed;",
+        "    inset-block-end: 1rem;",
+        "    inset-inline-end: 1rem;",
+        "    z-index: 10;",
+        "    background-color: rgb(24 24 24 / 90%);",
+        "    color: #fff;",
+        "    font: 500 0.75rem/1.5 system-ui, sans-serif;",
+        "}",
         ".image-viewport {",
         f"    --dcss-site-max: min(100%, calc(100dvh * {width} / {height}));",
         "    block-size: 100dvh;",
@@ -233,6 +244,7 @@ def generate_html(rectangles: list[Rectangle], dest: Path) -> None:
                 f'gw{rect.width} gh{rect.height}"></i>\n'
             )
         file.write("""</div>
+<a class="image-credit" href="https://github.com/CRISvsGAME/3dcss">CSS Art · Made with 3DCSS</a>
 </body>
 </html>
 """)
