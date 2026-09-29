@@ -1,0 +1,68 @@
+@layer reset {
+    *,
+    *::after,
+    *::before {
+        margin: 0;
+        border: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body,
+    footer,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    header,
+    html,
+    main,
+    ol,
+    section,
+    ul {
+        display: block;
+    }
+
+    a,
+    img {
+        display: inline-block;
+    }
+
+    html {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+    }
+
+    body {
+        overflow: visible;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: inherit;
+        font-weight: inherit;
+    }
+
+    a {
+        color: inherit;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    :root {
+        font-family: sans-serif;
+        font-size: 100%;
+        font-stretch: normal;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: normal;
+        line-height: 1;
+    }
+}

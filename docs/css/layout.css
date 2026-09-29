@@ -1,0 +1,176 @@
+@layer layout {
+    .site,
+    .st {
+        inline-size: 100%;
+        display: grid;
+        grid-template-columns:
+            [full-start] minmax(var(--dcss-site-min-gutter-start, 0), var(--dcss-site-space-start, 1fr))
+            [cont-start] minmax(0, var(--dcss-site-max, 100%))
+            [cont-end] minmax(var(--dcss-site-min-gutter-end, 0), var(--dcss-site-space-end, 1fr))
+            [full-end];
+    }
+
+    .site.site-align-start,
+    .site.st-a-s,
+    .st.site-align-start,
+    .st.st-a-s {
+        --dcss-site-space-start: 0fr;
+        --dcss-site-space-end: 1fr;
+    }
+
+    .site.site-align-center,
+    .site.st-a-c,
+    .st.site-align-center,
+    .st.st-a-c {
+        --dcss-site-space-start: 1fr;
+        --dcss-site-space-end: 1fr;
+    }
+
+    .site.site-align-end,
+    .site.st-a-e,
+    .st.site-align-end,
+    .st.st-a-e {
+        --dcss-site-space-start: 1fr;
+        --dcss-site-space-end: 0fr;
+    }
+
+    .site.site-gutter,
+    .site.st-g,
+    .site.site-gutter-start,
+    .site.st-g-s,
+    .st.site-gutter,
+    .st.st-g,
+    .st.site-gutter-start,
+    .st.st-g-s {
+        --dcss-site-min-gutter-start: var(--dcss-site-gutter-start, var(--dcss-site-gutter, 1rem));
+    }
+
+    .site.site-gutter,
+    .site.st-g,
+    .site.site-gutter-end,
+    .site.st-g-e,
+    .st.site-gutter,
+    .st.st-g,
+    .st.site-gutter-end,
+    .st.st-g-e {
+        --dcss-site-min-gutter-end: var(--dcss-site-gutter-end, var(--dcss-site-gutter, 1rem));
+    }
+
+    .site > *,
+    .st > * {
+        grid-column: cont-start / cont-end;
+    }
+
+    .site > .site-bleed,
+    .site > .st-b,
+    .st > .site-bleed,
+    .st > .st-b {
+        display: grid;
+        grid-column: full-start / full-end;
+        grid-template-columns: subgrid;
+    }
+
+    .site > .site-bleed > *,
+    .site > .st-b > *,
+    .st > .site-bleed > *,
+    .st > .st-b > * {
+        grid-column: full-start / full-end;
+    }
+
+    .site > .site-bleed-start,
+    .site > .st-b-s,
+    .st > .site-bleed-start,
+    .st > .st-b-s {
+        display: grid;
+        grid-column: full-start / cont-end;
+        grid-template-columns: subgrid;
+    }
+
+    .site > .site-bleed-start > *,
+    .site > .st-b-s > *,
+    .st > .site-bleed-start > *,
+    .st > .st-b-s > * {
+        grid-column: full-start / cont-end;
+    }
+
+    .site > .site-bleed-end,
+    .site > .st-b-e,
+    .st > .site-bleed-end,
+    .st > .st-b-e {
+        display: grid;
+        grid-column: cont-start / full-end;
+        grid-template-columns: subgrid;
+    }
+
+    .site > .site-bleed-end > *,
+    .site > .st-b-e > *,
+    .st > .site-bleed-end > *,
+    .st > .st-b-e > * {
+        grid-column: cont-start / full-end;
+    }
+
+    .site > .site-bleed > .site-start,
+    .site > .site-bleed > .st-s,
+    .site > .st-b > .site-start,
+    .site > .st-b > .st-s,
+    .site > .site-bleed-start > .site-start,
+    .site > .site-bleed-start > .st-s,
+    .site > .st-b-s > .site-start,
+    .site > .st-b-s > .st-s,
+    .st > .site-bleed > .site-start,
+    .st > .site-bleed > .st-s,
+    .st > .st-b > .site-start,
+    .st > .st-b > .st-s,
+    .st > .site-bleed-start > .site-start,
+    .st > .site-bleed-start > .st-s,
+    .st > .st-b-s > .site-start,
+    .st > .st-b-s > .st-s {
+        grid-column: full-start / cont-start;
+    }
+
+    .site > .site-bleed > .site-end,
+    .site > .site-bleed > .st-e,
+    .site > .st-b > .site-end,
+    .site > .st-b > .st-e,
+    .site > .site-bleed-end > .site-end,
+    .site > .site-bleed-end > .st-e,
+    .site > .st-b-e > .site-end,
+    .site > .st-b-e > .st-e,
+    .st > .site-bleed > .site-end,
+    .st > .site-bleed > .st-e,
+    .st > .st-b > .site-end,
+    .st > .st-b > .st-e,
+    .st > .site-bleed-end > .site-end,
+    .st > .site-bleed-end > .st-e,
+    .st > .st-b-e > .site-end,
+    .st > .st-b-e > .st-e {
+        grid-column: cont-end / full-end;
+    }
+
+    .site > .site-bleed > .site-content,
+    .site > .site-bleed > .st-c,
+    .site > .st-b > .site-content,
+    .site > .st-b > .st-c,
+    .site > .site-bleed-start > .site-content,
+    .site > .site-bleed-start > .st-c,
+    .site > .st-b-s > .site-content,
+    .site > .st-b-s > .st-c,
+    .site > .site-bleed-end > .site-content,
+    .site > .site-bleed-end > .st-c,
+    .site > .st-b-e > .site-content,
+    .site > .st-b-e > .st-c,
+    .st > .site-bleed > .site-content,
+    .st > .site-bleed > .st-c,
+    .st > .st-b > .site-content,
+    .st > .st-b > .st-c,
+    .st > .site-bleed-start > .site-content,
+    .st > .site-bleed-start > .st-c,
+    .st > .st-b-s > .site-content,
+    .st > .st-b-s > .st-c,
+    .st > .site-bleed-end > .site-content,
+    .st > .site-bleed-end > .st-c,
+    .st > .st-b-e > .site-content,
+    .st > .st-b-e > .st-c {
+        grid-column: cont-start / cont-end;
+    }
+}
