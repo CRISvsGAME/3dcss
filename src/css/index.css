@@ -1,4 +1,4 @@
-@layer reset, base, layout, components, utilities;
+@layer reset, base, layout, components, utilities, project;
 
 @import "./reset.css";
 @import "./layout.css";
