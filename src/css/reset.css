@@ -22,6 +22,7 @@
     h6,
     header,
     html,
+    li,
     main,
     ol,
     section,
@@ -30,6 +31,7 @@
     }
 
     a,
+    button,
     img {
         display: inline-block;
     }
