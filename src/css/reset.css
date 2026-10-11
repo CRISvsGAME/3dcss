@@ -71,6 +71,7 @@
     a {
         color: inherit;
         cursor: pointer;
+        text-align: inherit;
         text-decoration: none;
     }
 
