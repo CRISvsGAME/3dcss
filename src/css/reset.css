@@ -51,14 +51,21 @@
         list-style: none;
     }
 
+    a,
+    button,
     h1,
     h2,
     h3,
     h4,
     h5,
     h6 {
+        font-family: inherit;
         font-size: inherit;
+        font-stretch: inherit;
+        font-style: inherit;
+        font-variant: inherit;
         font-weight: inherit;
+        line-height: inherit;
     }
 
     a {
