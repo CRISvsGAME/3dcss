@@ -1,12 +1,14 @@
 @layer layout {
     .site,
     .st {
+        --dcss-site-min-gutter-start: 0;
+        --dcss-site-min-gutter-end: 0;
         inline-size: 100%;
         display: grid;
         grid-template-columns:
-            [full-start] minmax(var(--dcss-site-min-gutter-start, 0), var(--dcss-site-space-start, 1fr))
+            [full-start] minmax(var(--dcss-site-min-gutter-start), var(--dcss-site-space-start, 1fr))
             [cont-start] minmax(0, var(--dcss-site-max, 100%))
-            [cont-end] minmax(var(--dcss-site-min-gutter-end, 0), var(--dcss-site-space-end, 1fr))
+            [cont-end] minmax(var(--dcss-site-min-gutter-end), var(--dcss-site-space-end, 1fr))
             [full-end];
     }
 
