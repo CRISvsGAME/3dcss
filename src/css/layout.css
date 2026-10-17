@@ -60,6 +60,7 @@
 
     .site > *,
     .st > * {
+        min-inline-size: 0;
         grid-column: cont-start / cont-end;
     }
 
