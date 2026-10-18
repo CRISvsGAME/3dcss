@@ -67,7 +67,11 @@
     .site > .site-bleed,
     .site > .st-b,
     .st > .site-bleed,
-    .st > .st-b {
+    .st > .st-b,
+    .site-bleed > .site-bleed,
+    .site-bleed > .st-b,
+    .st-b > .site-bleed,
+    .st-b > .st-b {
         display: grid;
         grid-column: full-start / full-end;
         grid-template-columns: subgrid;
