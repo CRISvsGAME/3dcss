@@ -87,7 +87,15 @@
     .site > .site-bleed-start,
     .site > .st-b-s,
     .st > .site-bleed-start,
-    .st > .st-b-s {
+    .st > .st-b-s,
+    .site-bleed > .site-bleed-start,
+    .site-bleed > .st-b-s,
+    .st-b > .site-bleed-start,
+    .st-b > .st-b-s,
+    .site-bleed-start > .site-bleed-start,
+    .site-bleed-start > .st-b-s,
+    .st-b-s > .site-bleed-start,
+    .st-b-s > .st-b-s {
         display: grid;
         grid-column: full-start / cont-end;
         grid-template-columns: subgrid;
