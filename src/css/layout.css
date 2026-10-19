@@ -77,10 +77,14 @@
         grid-template-columns: subgrid;
     }
 
-    .site .site-bleed > *,
-    .site .st-b > *,
-    .st .site-bleed > *,
-    .st .st-b > * {
+    .site > .site-bleed > *,
+    .site > .st-b > *,
+    .st > .site-bleed > *,
+    .st > .st-b > *,
+    .site-bleed > .site-bleed > *,
+    .site-bleed > .st-b > *,
+    .st-b > .site-bleed > *,
+    .st-b > .st-b > * {
         grid-column: full-start / full-end;
     }
 
