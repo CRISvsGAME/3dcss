@@ -152,22 +152,14 @@
         grid-column: cont-start / full-end;
     }
 
-    .site > .site-bleed > .site-start,
-    .site > .site-bleed > .st-s,
-    .site > .st-b > .site-start,
-    .site > .st-b > .st-s,
-    .site > .site-bleed-start > .site-start,
-    .site > .site-bleed-start > .st-s,
-    .site > .st-b-s > .site-start,
-    .site > .st-b-s > .st-s,
-    .st > .site-bleed > .site-start,
-    .st > .site-bleed > .st-s,
-    .st > .st-b > .site-start,
-    .st > .st-b > .st-s,
-    .st > .site-bleed-start > .site-start,
-    .st > .site-bleed-start > .st-s,
-    .st > .st-b-s > .site-start,
-    .st > .st-b-s > .st-s {
+    .site-bleed > .site-start,
+    .site-bleed > .st-s,
+    .st-b > .site-start,
+    .st-b > .st-s,
+    .site-bleed-start > .site-start,
+    .site-bleed-start > .st-s,
+    .st-b-s > .site-start,
+    .st-b-s > .st-s {
         grid-column: full-start / cont-start;
     }
 
