@@ -123,7 +123,15 @@
     .site > .site-bleed-end,
     .site > .st-b-e,
     .st > .site-bleed-end,
-    .st > .st-b-e {
+    .st > .st-b-e,
+    .site-bleed > .site-bleed-end,
+    .site-bleed > .st-b-e,
+    .st-b > .site-bleed-end,
+    .st-b > .st-b-e,
+    .site-bleed-end > .site-bleed-end,
+    .site-bleed-end > .st-b-e,
+    .st-b-e > .site-bleed-end,
+    .st-b-e > .st-b-e {
         display: grid;
         grid-column: cont-start / full-end;
         grid-template-columns: subgrid;
