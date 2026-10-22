@@ -16,13 +16,13 @@ from typing import Literal, cast
 from PIL import Image, ImageOps
 
 if len(sys.argv) < 3:
-    print("Usage: generator.py <url> <output> [<width>] [<height>]")
+    print("Usage: generator.py <url_or_path> <output> [<width>] [<height>]")
     sys.exit(1)
 
 
 @dataclass(slots=True)
 class Rectangle:
-    """Reactangle"""
+    """Rectangle"""
 
     x: int
     y: int
@@ -31,7 +31,7 @@ class Rectangle:
     color_index: int
 
 
-URL = sys.argv[1]
+SRC = sys.argv[1]
 OUT = Path(sys.argv[2]).expanduser()
 WIDTH = int(sys.argv[3]) if len(sys.argv) > 3 else 0
 HEIGHT = int(sys.argv[4]) if len(sys.argv) > 4 else 0
@@ -58,10 +58,10 @@ def download_source(url: str, dest: Path) -> None:
             shutil.copyfileobj(response, file)
 
 
-def load_image(src: Path) -> Image.Image:
+def load_image(src_img: Path) -> Image.Image:
     """Load Image"""
-    with Image.open(src) as src_img:
-        return src_img.convert("RGB")
+    with Image.open(src_img) as img:
+        return img.convert("RGB")
 
 
 def calculate_dimensions(img: Image.Image, width: int, height: int) -> tuple[int, int]:
@@ -159,6 +159,15 @@ def download_3dcss(dest: Path) -> None:
             download_source(file["download_url"], dest / "css" / file["name"])
 
 
+def prepare_3dcss(dest: Path) -> None:
+    """Prepare 3DCSS"""
+    source = Path(__file__).resolve().parent.parent.parent / "src" / "css"
+    if source.is_dir():
+        shutil.copytree(source, dest / "css", dirs_exist_ok=True)
+    else:
+        download_3dcss(dest)
+
+
 def generate_palette(img: Image.Image, rectangles: list[Rectangle], dest: Path) -> None:
     """Generate Palette"""
     if img.mode != "P":
@@ -197,7 +206,7 @@ def generate_grid(img: Image.Image, rectangles: list[Rectangle], dest: Path) -> 
         "    font: 500 0.75rem/1.5 system-ui, sans-serif;",
         "}",
         ".image-viewport {",
-        f"    --dcss-site-max: min(100%, calc(100dvh * {width} / {height}));",
+        f"    --dcss-container-max: min(100%, calc(100dvh * {width} / {height}));",
         "    block-size: 100dvh;",
         "    align-items: center;",
         "}",
@@ -234,7 +243,7 @@ def generate_html(rectangles: list[Rectangle], dest: Path) -> None:
     <title>3DCSS Image</title>
     <link rel="stylesheet" href="main.css">
 </head>
-<body class="st image-viewport">
+<body class="ct image-viewport">
 <div class="gr image-grid" role="img" aria-label="3DCSS Image">
 """)
         for rect in rectangles:
@@ -250,14 +259,17 @@ def generate_html(rectangles: list[Rectangle], dest: Path) -> None:
 """)
 
 
-SRC = generate_filepath(URL, OUT)
-download_source(URL, SRC)
-image = load_image(SRC)
+if Path(SRC).is_file():
+    src = Path(SRC)
+else:
+    src = generate_filepath(SRC, OUT)
+    download_source(SRC, src)
+image = load_image(src)
 TARGET_WIDTH, TARGET_HEIGHT = calculate_dimensions(image, WIDTH, HEIGHT)
 image = resize_image(image, TARGET_WIDTH, TARGET_HEIGHT)
 image = quantize_image(image)
 rects = select_rectangles(image)
-download_3dcss(OUT)
+prepare_3dcss(OUT)
 generate_palette(image, rects, OUT)
 generate_grid(image, rects, OUT)
 generate_html(rects, OUT)

@@ -1,7 +1,7 @@
 @import "../src/css/index.css";
 
 :root {
-    --dcss-site-max: 70rem;
+    --dcss-container-max: 120rem;
 }
 
 .size {
